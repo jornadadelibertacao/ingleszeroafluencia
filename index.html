@@ -5,133 +5,187 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inglês do Zero à Fluência - Método SALR</title>
 <style>
-* {margin:0;padding:0;box-sizing:border-box;font-family:'Arial',sans-serif;}
-body {background:#f8f9fa;color:#333;line-height:1.6;}
-a {text-decoration:none;color:inherit;}
-
-/* Cabeçalho */
-header {background: linear-gradient(90deg,#ff6a00,#ff9900); color:#fff; text-align:center; padding:80px 20px;}
-header h1 {font-size:2.8rem; margin-bottom:15px;}
-header p {font-size:1.3rem; margin-bottom:30px; font-weight:bold;}
-header a {background:#fff; color:#ff6a00; padding:20px 50px; border-radius:50px; font-weight:bold; font-size:1.3rem; transition:0.3s;}
-header a:hover {background:#ff6a00; color:#fff;}
-
-/* Vídeo do professor */
-section.video {text-align:center; padding:40px 20px; background:#fff;}
-section.video h2 {color:#ff6a00; margin-bottom:20px;}
-section.video iframe {border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.1);}
-
-/* Benefícios */
-section.benefits {padding:60px 20px; max-width:1200px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px;}
-section.benefits div {background:#fff; padding:25px; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.15); text-align:center; transition: transform 0.3s;}
-section.benefits div:hover {transform:translateY(-10px);}
-section.benefits h3 {margin-bottom:15px; color:#ff6a00; font-size:1.3rem;}
-
-/* Depoimentos estilo WhatsApp */
-section.testimonials {padding:60px 20px; max-width:800px; margin:auto;}
-section.testimonials h2 {text-align:center; margin-bottom:40px; color:#ff6a00;}
-.whatsapp-message {background:#dcf8c6; padding:15px 20px; border-radius:20px; margin-bottom:20px; position:relative; max-width:80%; margin-left:auto; font-size:1rem; line-height:1.4;}
-.whatsapp-message::after {content:""; position:absolute; bottom:0; right:10px; width:0; height:0; border-top:10px solid #dcf8c6; border-left:10px solid transparent; border-right:10px solid transparent;}
-
-/* Bônus */
-section.bonus {background:#ff9900; color:#fff; padding:60px 20px; text-align:center;}
-section.bonus h2 {margin-bottom:20px; font-size:2rem;}
-section.bonus p {font-size:1.2rem; margin-bottom:20px; font-weight:bold;}
-
-/* Contagem regressiva */
-.countdown {font-size:2rem; font-weight:bold; margin-top:10px;}
-
-/* CTA Final */
-section.cta {text-align:center; padding:60px 20px;}
-section.cta a {background:#ff6a00; color:#fff; padding:20px 50px; font-size:1.3rem; font-weight:bold; border-radius:50px; transition:0.3s; display:inline-block;}
-section.cta a:hover {background:#ff9900;}
-
-/* Botão flutuante mobile */
-#buy-button {position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#ff6a00; color:#fff; padding:20px 40px; font-size:1.2rem; font-weight:bold; border-radius:50px; z-index:999; display:none; box-shadow:0 5px 20px rgba(0,0,0,0.2);}
-#buy-button:hover {background:#ff9900;}
-
-@media(max-width:768px){
-  header h1 {font-size:2.2rem;}
-  header p {font-size:1.1rem;}
-  .whatsapp-message {max-width:100%;}
-  #buy-button {display:block;}
-}
+body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f8fb; color:#333; scroll-behavior:smooth; }
+header { background:#005f99; color:#fff; text-align:center; padding:50px 20px; }
+header h1 { margin:0; font-size:2.5em; }
+header p { font-size:1.2em; margin-top:10px; }
+.video-container { text-align:center; margin:30px 0; animation:fadeIn 1s ease-in; }
+.video-container iframe { width:90%; max-width:800px; height:450px; border:none; }
+section { padding:50px 20px; max-width:1000px; margin:0 auto; opacity:0; transform: translateY(30px); animation:fadeUp 1s forwards; animation-delay:0.2s; }
+h2 { color:#005f99; margin-bottom:20px; text-align:center; }
+.benefits ul { list-style:none; padding:0; }
+.benefits li { background:#e1f0ff; margin:10px 0; padding:15px; border-radius:8px; font-size:1.1em; }
+.carousel-container { position:relative; overflow:hidden; }
+.carousel { display:flex; transition: transform 0.5s ease; }
+.carousel-item { min-width:100%; box-sizing:border-box; padding:20px; }
+.whatsapp .message { background:#dcf8c6; padding:10px 15px; margin:10px 0; border-radius:20px; max-width:80%; }
+.whatsapp .name { font-weight:bold; margin-bottom:5px; }
+video { width:100%; border-radius:8px; }
+.bonus ul, .guarantee p, .social-proof { list-style:none; padding:0; text-align:center; }
+.bonus li { background:#e1f0ff; margin:10px 0; padding:15px; border-radius:8px; font-size:1.1em; }
+.guarantee p { background:#e1f0ff; padding:20px; border-radius:8px; font-size:1.2em; }
+.cta { text-align:center; margin:30px 0; }
+.cta a { background:#ff5a00; color:#fff; text-decoration:none; font-size:1.5em; padding:20px 40px; border-radius:10px; transition:0.3s; display:inline-block; }
+.cta a:hover { background:#e04e00; }
+.timer { text-align:center; font-size:1.5em; color:#ff0000; margin-bottom:10px; }
+button.carousel-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.3); border:none; color:#fff; font-size:2em; padding:10px; cursor:pointer; border-radius:50%; }
+button.prev { left:10px; }
+button.next { right:10px; }
+.carousel-indicators { text-align:center; margin-top:10px; }
+.carousel-indicators span { display:inline-block; width:12px; height:12px; background:#ccc; margin:0 5px; border-radius:50%; cursor:pointer; }
+.carousel-indicators .active { background:#005f99; }
+footer { background:#005f99; color:#fff; text-align:center; padding:20px; }
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+@keyframes fadeUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
+@media(max-width:600px){ .video-container iframe { height:250px; } button.carousel-btn { font-size:1.5em; padding:5px; } }
 </style>
 </head>
 <body>
 
-<!-- Cabeçalho -->
 <header>
-<h1>Aprenda Inglês do Zero à Fluência com o Método SALR</h1>
-<p>Mesmo que você nunca tenha estudado antes! Ao se inscrever hoje, você ainda leva 12 e-books bônus exclusivos do Professor Merson.</p>
-<a href="#cta">Quero Aprender Agora!</a>
+    <h1>Aprenda inglês com o Método SALR do Professor Merson</h1>
+    <p>Do zero à fluência de forma prática, rápida e sem enrolação</p>
 </header>
 
-<!-- Vídeo do professor -->
-<section class="video">
-<h2>Assista ao Professor Merson explicando o Método SALR!</h2>
-<div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; max-width:100%;">
-<iframe src="https://www.youtube.com/embed/uJ5jXR1Sdo8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/uJ5jXR1Sdo8?autoplay=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
-<a href="https://pay.kiwify.com.br/8TvpK7G?afid=kuQvvVDJ" target="_blank" style="display:inline-block; margin-top:20px; background:#ff6a00; color:#fff; padding:20px 50px; font-size:1.3rem; font-weight:bold; border-radius:50px; transition:0.3s;">Quero Aprender Agora!</a>
-</section>
 
-<!-- Benefícios -->
 <section class="benefits">
-<div>
-<h3>Aprenda de Verdade</h3>
-<p>Vocabulário, gramática e conversação do zero ao avançado de forma prática e divertida com o Método SALR.</p>
-</div>
-<div>
-<h3>Acesso Vitalício</h3>
-<p>Revise todas as aulas quantas vezes quiser, sem prazo de expiração.</p>
-</div>
-<div>
-<h3>Método Comprovado</h3>
-<p>O Método SALR do Professor Merson já ajudou centenas de alunos a falar inglês de verdade.</p>
-</div>
-<div>
-<h3>Suporte Exclusivo</h3>
-<p>Tire dúvidas diretamente com o professor e conte com suporte dedicado aos alunos.</p>
-</div>
+    <h2>O que você vai aprender:</h2>
+    <ul>
+        <li>Vocabulário e gramática simplificados</li>
+        <li>Frases práticas para conversação</li>
+        <li>Pronúncia correta e natural</li>
+        <li>Acesso vitalício ao curso</li>
+        <li>Método comprovado para aprender rápido</li>
+    </ul>
 </section>
 
-<!-- Bônus -->
+<section class="social-proof">
+    <h2>Mais de 500 alunos já aprenderam com o Método SALR!</h2>
+</section>
+
+<section class="whatsapp">
+    <h2>Depoimentos de alunos</h2>
+    <div class="carousel-container" id="whatsappCarousel">
+        <div class="carousel">
+            <div class="carousel-item">
+                <div class="message"><div class="name">Maria S.</div>Comecei sem saber nada e já consigo conversar em inglês! O Método SALR é incrível.</div>
+            </div>
+            <div class="carousel-item">
+                <div class="message"><div class="name">João P.</div>Simples, direto e eficiente. Finalmente estou aprendendo inglês de verdade.</div>
+            </div>
+            <div class="carousel-item">
+                <div class="message"><div class="name">Ana C.</div>Os vídeos e explicações do Professor Merson mudaram totalmente minha forma de estudar.</div>
+            </div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel('whatsappCarousel', -1)">‹</button>
+        <button class="carousel-btn next" onclick="moveCarousel('whatsappCarousel', 1)">›</button>
+        <div class="carousel-indicators" id="whatsappIndicators"></div>
+    </div>
+</section>
+
+<section class="videos">
+    <h2>Mais depoimentos em vídeo</h2>
+    <div class="carousel-container" id="videoCarousel">
+        <div class="carousel">
+            <div class="carousel-item"><video controls src="https://drive.google.com/uc?export=download&id=1HqE1oTuIc94yCw37sgSBdQZusINaY9L_"></video></div>
+            <div class="carousel-item"><video controls src="https://drive.google.com/uc?export=download&id=1yXtWp5PbTsock9TLMaIueulVR1tzq5FR"></video></div>
+            <div class="carousel-item"><video controls src="https://drive.google.com/uc?export=download&id=1OPrj6AfBqj6RQ6mvvwTK3WtDAaYvPbUG"></video></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel('videoCarousel', -1)">‹</button>
+        <button class="carousel-btn next" onclick="moveCarousel('videoCarousel', 1)">›</button>
+        <div class="carousel-indicators" id="videoIndicators"></div>
+    </div>
+</section>
+
+<section class="guarantee">
+    <h2>Garantia de 7 dias</h2>
+    <p>Se você não ficar satisfeito, devolvemos seu dinheiro sem complicações.</p>
+</section>
+
 <section class="bonus">
-<h2>🎁 Bônus Exclusivo!</h2>
-<p>Ao adquirir o curso, você recebe <strong>12 e-books exclusivos</strong> do Professor Merson que complementam o Método SALR!</p>
-<p class="countdown" id="countdown">Oferta válida por: 00:30:00</p>
+    <h2>Bônus Exclusivos</h2>
+    <ul>
+        <li>Checklist de estudos semanais</li>
+        <li>Frases prontas para conversação diária</li>
+        <li>Grupo de apoio com alunos do método</li>
+    </ul>
 </section>
 
-<!-- Depoimentos estilo WhatsApp -->
-<section class="testimonials">
-<h2>O que os alunos estão dizendo:</h2>
-<div class="whatsapp-message">"Antes eu não conseguia entender nada em inglês, mas com o Método SALR, agora falo com confiança!" – Ana S.</div>
-<div class="whatsapp-message">"As aulas são diretas, práticas e fáceis de aplicar. Recomendo 100%!" – Lucas M.</div>
-<div class="whatsapp-message">"Já tentei vários cursos, mas o Método SALR realmente funciona. Sinto evolução todos os dias!" – Mariana F.</div>
-</section>
+<div class="cta">
+    <div class="timer" id="timer">Oferta especial termina em 05:00</div>
+    <a href="https://pay.kiwify.com.br/8TvpK7G?afid=kuQvvVDJ" target="_blank" id="buyButton">Quero aprender agora!</a>
+</div>
 
-<!-- CTA Final -->
-<section class="cta" id="cta">
-<h2>Comece Hoje Mesmo e Leve os 12 E-books Bônus do Método SALR!</h2>
-<a href="https://pay.kiwify.com.br/8TvpK7G?afid=kuQvvVDJ" target="_blank">Quero Aprender Agora!</a>
-</section>
-
-<!-- Botão flutuante mobile -->
-<a href="https://pay.kiwify.com.br/8TvpK7G?afid=kuQvvVDJ" target="_blank" id="buy-button">Quero Aprender Agora!</a>
+<footer>
+    &copy; 2025 Professor Merson - Todos os direitos reservados
+</footer>
 
 <script>
-// Contagem regressiva 30 minutos
-let countdownTime = 30 * 60;
-const countdownEl = document.getElementById('countdown');
-function updateCountdown() {
-  const minutes = Math.floor(countdownTime/60).toString().padStart(2,'0');
-  const seconds = (countdownTime%60).toString().padStart(2,'0');
-  countdownEl.textContent = `Oferta válida por: ${minutes}:${seconds}`;
-  if(countdownTime>0) countdownTime--;
-  else clearInterval(interval);
+// Cronômetro regressivo de 5 minutos
+let timeLeft = 5 * 60;
+const timerEl = document.getElementById('timer');
+const buttonEl = document.getElementById('buyButton');
+const countdown = setInterval(() => {
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+    if(seconds < 10) seconds = '0' + seconds;
+    timerEl.textContent = `Oferta especial termina em ${minutes}:${seconds}`;
+    timeLeft--;
+    if(timeLeft < 0){
+        clearInterval(countdown);
+        timerEl.textContent = "Oferta encerrada!";
+        buttonEl.textContent = "Oferta encerrada";
+        buttonEl.style.pointerEvents = "none";
+        buttonEl.style.background = "#999";
+    }
+}, 1000);
+
+// Carrossel funcional
+function moveCarousel(id, direction){
+    const container = document.getElementById(id);
+    const carousel = container.querySelector('.carousel');
+    const items = carousel.children.length;
+    let index = container.getAttribute('data-index') || 0;
+    index = parseInt(index) + direction;
+    if(index < 0) index = 0;
+    if(index >= items) index = items -1;
+    container.setAttribute('data-index', index);
+    carousel.style.transform = `translateX(-${index*100}%)`;
+    updateIndicators(container, index);
 }
-const interval = setInterval(updateCountdown,1000);
+
+function createIndicators(containerId){
+    const container = document.getElementById(containerId);
+    const indicators = container.querySelector('.carousel-indicators');
+    const items = container.querySelectorAll('.carousel-item').length;
+    for(let i=0;i<items;i++){
+        const dot = document.createElement('span');
+        if(i===0) dot.classList.add('active');
+        dot.addEventListener('click', ()=>moveCarouselTo(containerId,i));
+        indicators.appendChild(dot);
+    }
+}
+
+function moveCarouselTo(containerId,index){
+    const container = document.getElementById(containerId);
+    container.setAttribute('data-index',index);
+    const carousel = container.querySelector('.carousel');
+    carousel.style.transform = `translateX(-${index*100}%)`;
+    updateIndicators(container,index);
+}
+
+function updateIndicators(container,index){
+    const dots = container.querySelectorAll('.carousel-indicators span');
+    dots.forEach(dot=>dot.classList.remove('active'));
+    dots[index].classList.add('active');
+}
+
+// Inicializa indicadores
+createIndicators('whatsappCarousel');
+createIndicators('videoCarousel');
 </script>
 
 </body>
