@@ -1,82 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inglês do Zero com Professor Merson</title>
+<style>
+  /* Reset básico */
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+
+  /* Cabeçalho */
+  header {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #1a1a1a;
+    color: #fff;
+  }
+  header h1 { font-size: 3rem; margin-bottom: 20px; }
+  header p { font-size: 1.2rem; margin-bottom: 20px; }
+  header iframe { max-width: 100%; height: auto; margin-bottom: 30px; }
+  #timer { font-weight: bold; font-size: 1.5rem; }
+
+  /* Botão principal */
+  .btn-primary {
+    display: inline-block;
+    background-color: #ff0000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 20px 40px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+    text-decoration: none;
+  }
+  .btn-primary:hover { transform: scale(1.05); }
+
+  /* Seções */
+  section { padding: 60px 20px; }
+  section h2 { font-size: 2.5rem; margin-bottom: 20px; color: #222; text-align: center; }
+  section p { font-size: 1.1rem; line-height: 1.8; color: #555; max-width: 800px; margin: 0 auto 20px auto; }
+
+  /* Lista método SALR */
+  #metodo-salr ul { list-style: none; padding: 0; margin-top: 20px; color: #555; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin-left: auto; margin-right: auto; }
+  #metodo-salr li { margin-bottom: 10px; }
+
+  /* Depoimentos */
+  #depoimentos .depoimento {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 5px solid #1a1a1a;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Botão flutuante */
+  .btn-flutuante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: #ff0000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align:center;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+  .btn-flutuante:hover { transform: scale(1.1); }
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+    header h1 { font-size: 2.2rem; }
+    header p { font-size: 1rem; }
+    .btn-primary { font-size: 1.2rem; padding: 15px 30px; }
+    section h2 { font-size: 2rem; }
+    section p { font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
 <!-- Cabeçalho / Hero -->
-<header style="text-align: center; padding: 40px 20px; background-color: #f5f5f5;">
-  <h1 style="font-size: 3rem; color: #222; margin-bottom: 20px;">Inglês do Zero com Professor Merson</h1>
-  <p style="font-size: 1.2rem; color: #555; margin-bottom: 30px;">
-    Aprenda inglês de forma prática, rápida e eficiente, do zero à conversação!
+<header>
+  <h1>Inglês do Zero com Professor Merson</h1>
+  <p>Aprenda inglês de forma prática, rápida e eficiente, do zero à conversação!</p>
+  <!-- Vídeo -->
+  <iframe src="https://www.youtube.com/embed/uJ5jXR1Sdo8" frameborder="0" allowfullscreen></iframe>
+
+  <!-- Cronômetro -->
+  <div>Oferta válida por: <span id="timer">05:00</span> minutos!</div>
+
+  <!-- Botão principal -->
+  <a href="https://pay.kiwify.com.br/8TvpK7G?afid=kuQvvVDJ" class="btn-primary">QUERO APRENDER AGORA</a>
+  <p style="margin-top: 15px; font-size: 1.1rem; color: #ffd700;">
+    Ao adquirir o curso, você recebe <strong>12 E-BOOKS BÔNUS</strong> do próprio Professor Merson!
   </p>
-  <!-- Vídeo do Professor Merson -->
-  <div style="margin: 0 auto; max-width: 700px;">
-    <iframe width="100%" height="400" src="https://www.youtube.com/embed/uJ5jXR1Sdo8" frameborder="0" allowfullscreen></iframe>
-  </div>
 </header>
 
 <!-- Seção sobre o Professor Merson -->
-<section id="sobre-merson" style="padding: 60px 20px; background-color: #f9f9f9; text-align: center;">
-  <div style="max-width: 800px; margin: 0 auto;">
-    <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #222;">Conheça o Professor Merson</h2>
-    <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">
-      O Professor Merson é especialista em ensino de inglês para brasileiros, com anos de experiência ajudando alunos a falarem inglês de forma prática e rápida. 
-      Ele desenvolveu um método exclusivo que simplifica o aprendizado e garante resultados reais em pouco tempo.
-    </p>
-  </div>
+<section id="sobre-merson">
+  <h2>Conheça o Professor Merson</h2>
+  <p>O Professor Merson é especialista em ensino de inglês para brasileiros, com anos de experiência ajudando alunos a falarem inglês de forma prática e rápida. 
+      Ele desenvolveu um método exclusivo que simplifica o aprendizado e garante resultados reais em pouco tempo.</p>
 </section>
 
 <!-- Seção sobre o Método SALR -->
-<section id="metodo-salr" style="padding: 60px 20px; text-align: center;">
-  <div style="max-width: 800px; margin: 0 auto;">
-    <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #222;">O Método SALR</h2>
-    <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">
-      O Método <strong>SALR</strong> é a abordagem exclusiva do Professor Merson para aprender inglês do zero. 
-      Baseado em quatro pilares fundamentais, ele ajuda você a entender, memorizar e aplicar o inglês de forma rápida e prática:
-    </p>
-    <ul style="list-style: none; padding: 0; margin-top: 20px; color: #555; font-size: 1.1rem; line-height: 1.8;">
-      <li>✅ <strong>S</strong> – Simplificação: aprender o essencial sem complicação</li>
-      <li>✅ <strong>A</strong> – Ação: prática constante para fixar o conteúdo</li>
-      <li>✅ <strong>L</strong> – Leitura e audição: absorver inglês real do dia a dia</li>
-      <li>✅ <strong>R</strong> – Repetição inteligente: revisar de forma estratégica para memorizar</li>
-    </ul>
-  </div>
+<section id="metodo-salr" style="background-color: #f5f5f5;">
+  <h2>O Método SALR</h2>
+  <p>O Método <strong>SALR</strong> é a abordagem exclusiva do Professor Merson para aprender inglês do zero. 
+      Baseado em quatro pilares fundamentais, ele ajuda você a entender, memorizar e aplicar o inglês de forma rápida e prática:</p>
+  <ul>
+    <li>✅ <strong>S</strong> – Simplificação: aprender o essencial sem complicação</li>
+    <li>✅ <strong>A</strong> – Ação: prática constante para fixar o conteúdo</li>
+    <li>✅ <strong>L</strong> – Leitura e audição: absorver inglês real do dia a dia</li>
+    <li>✅ <strong>R</strong> – Repetição inteligente: revisar de forma estratégica para memorizar</li>
+  </ul>
 </section>
 
 <!-- Seção destaque do que vai aprender + alunos -->
-<section id="destaque-curso" style="padding: 60px 20px; background-color: #ffe600; text-align: center;">
-  <div style="max-width: 800px; margin: 0 auto;">
-    <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #222;">O que você vai aprender no curso</h2>
-    <p style="font-size: 1.2rem; line-height: 1.8; color: #222; margin-bottom: 30px;">
-      Aprenda inglês de forma prática, entendendo gramática essencial, vocabulário do dia a dia, conversação natural e pronúncia correta. Tudo com foco em resultados rápidos!
-    </p>
-    <p style="font-size: 1.1rem; font-weight: bold; color: #222; margin-bottom: 30px;">
-      Mais de <strong>1.000 alunos</strong> já transformaram seu inglês com o método do Professor Merson!
-    </p>
-    <a href="https://pay.kiwify.com.br/8TvpK7G?afid=kuQvvVDJ" 
-       style="display: inline-block; background-color: #ff0000; color: #fff; font-weight: bold; font-size: 1.3rem; padding: 20px 40px; border-radius: 50px; text-transform: uppercase; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: transform 0.2s;"
-       onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-       QUERO APRENDER AGORA
-    </a>
-  </div>
+<section id="destaque-curso">
+  <h2>O que você vai aprender no curso</h2>
+  <p>Aprenda inglês de forma prática, entendendo gramática essencial, vocabulário do dia a dia, conversação natural e pronúncia correta. Tudo com foco em resultados rápidos!</p>
+  <p style="font-weight:bold;">Mais de <strong>1.000 alunos</strong> já transformaram seu inglês com o método do Professor Merson!</p>
 </section>
 
-<!-- Depoimentos estilo WhatsApp -->
-<section id="depoimentos" style="padding: 60px 20px; background-color: #f5f5f5;">
-  <div style="max-width: 800px; margin: 0 auto;">
-    <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #222;">Depoimentos de Alunos</h2>
-    
-    <div style="background-color: #e1ffc7; padding: 15px 20px; border-radius: 15px; margin-bottom: 20px; max-width: 70%; float: left; clear: both;">
-      <p><strong>João:</strong> Nunca imaginei que poderia aprender inglês tão rápido. O método SALR é incrível!</p>
-    </div>
-    <div style="background-color: #fff; padding: 15px 20px; border-radius: 15px; margin-bottom: 20px; max-width: 70%; float: right; clear: both; border: 1px solid #ddd;">
-      <p><strong>Maria:</strong> Estou finalmente conseguindo conversar em inglês sem medo. Recomendo demais!</p>
-    </div>
-    <div style="background-color: #e1ffc7; padding: 15px 20px; border-radius: 15px; margin-bottom: 20px; max-width: 70%; float: left; clear: both;">
-      <p><strong>Carlos:</strong> O Professor Merson explica de um jeito que tudo fica fácil de entender. Vale cada minuto!</p>
-    </div>
-    <div style="clear: both;"></div>
-  </div>
+<!-- Depoimentos estilo tradicional -->
+<section id="depoimentos" style="background-color: #f0f0f0;">
+  <h2>Depoimentos de Alunos</h2>
+  <div class="depoimento"><p><strong>João:</strong> Nunca imaginei que poderia aprender inglês tão rápido. O método SALR é incrível!</p></div>
+  <div class="depoimento"><p><strong>Maria:</strong> Estou finalmente conseguindo conversar em inglês sem medo. Recomendo demais!</p></div>
+  <div class="depoimento"><p><strong>Carlos:</strong> O Professor Merson explica de um jeito que tudo fica fácil de entender. Vale cada minuto!</p></div>
 </section>
 
 <!-- Botão flutuante -->
-<a href="https://pay.kiwify.com.br/8TvpK7G?afid=kuQvvVDJ" 
-   style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background-color: #ff0000; color: #fff; font-weight: bold; font-size: 1rem; padding: 15px 25px; border-radius: 50px; text-transform: uppercase; box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-align:center; transition: transform 0.2s;"
-   onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-   QUERO APRENDER AGORA
-</a>
+<a href="https://pay.kiwify.com.br/8TvpK7G?afid=kuQvvVDJ" class="btn-flutuante">QUERO APRENDER AGORA</a>
+
+<!-- Script cronômetro -->
+<script>
+  let time = 300; // 5 minutos
+  const timerDisplay = document.getElementById('timer');
+
+  function updateTimer() {
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    if(seconds < 10) seconds = '0' + seconds;
+    timerDisplay.textContent = minutes + ':' + seconds;
+    if(time > 0) {
+      time--;
+      setTimeout(updateTimer, 1000);
+    } else {
+      timerDisplay.textContent = "00:00";
+    }
+  }
+
+  updateTimer();
+</script>
+
+</body>
+</html>
