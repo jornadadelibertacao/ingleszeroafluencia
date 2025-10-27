@@ -17,8 +17,15 @@
   }
   header h1 { font-size: 3rem; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
   header p { font-size: 1.2rem; margin-bottom: 20px; }
-  header iframe { max-width: 100%; height: auto; margin-bottom: 30px; border-radius: 10px; }
-  #timer { font-weight: bold; font-size: 1.5rem; color: #ffd700; text-shadow: 1px 1px 2px #000; }
+  header iframe { max-width: 100%; height: auto; margin-bottom: 20px; border-radius: 10px; }
+
+  #timer {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #ffd700;
+    text-shadow: 1px 1px 2px #000;
+    margin-bottom: 30px;
+  }
 
   /* Botão principal */
   .btn-primary {
@@ -46,7 +53,17 @@
   #metodo-salr li { margin-bottom: 10px; }
 
   /* Depoimentos WhatsApp */
-  #depoimentos .depoimento { padding: 15px 20px; border-radius: 20px; max-width: 70%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative; font-size: 1rem; opacity: 0; transform: translateY(30px); animation: fadeInUp 1s forwards; }
+  #depoimentos .depoimento {
+    padding: 15px 20px;
+    border-radius: 20px;
+    max-width: 70%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: relative;
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards;
+  }
   .left { align-self: flex-start; background-color: #d1ffd6; border-radius: 20px 20px 20px 5px; }
   .right { align-self: flex-end; background-color: #fff9e6; border-radius: 20px 20px 5px 20px; border: 1px solid #f0e6c2; }
 
@@ -70,6 +87,26 @@
     animation: pulse 2s infinite;
   }
   .btn-flutuante:hover { transform: scale(1.1); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+
+  /* Selo e Acesso Vitalício */
+  .selo-garantia {
+    display: inline-block;
+    margin-top: 30px;
+    background: gold;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    font-size: 1rem;
+  }
+  .acesso-vitalicio {
+    display: block;
+    font-weight: bold;
+    color: #ff4b2b;
+    font-size: 1.2rem;
+    margin-top: 15px;
+  }
 
   /* Animações */
   @keyframes fadeInHeader { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
@@ -118,49 +155,4 @@
   </ul>
 </section>
 
-<section id="destaque-curso">
-  <h2>O que você vai aprender no curso</h2>
-  <p>Aprenda inglês de forma prática, entendendo gramática essencial, vocabulário do dia a dia, conversação natural e pronúncia correta. Tudo com foco em resultados rápidos!</p>
-  <p style="font-weight:bold;">Mais de <strong>1.000 alunos</strong> já transformaram seu inglês com o método do Professor Merson!</p>
-</section>
-
-<section id="depoimentos" style="padding: 60px 20px; background-color: #e6f0f3;">
-  <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #0d1b2a;">Depoimentos de Alunos</h2>
-  <div style="display: flex; flex-direction: column; gap: 15px; max-width: 800px; margin: 0 auto;">
-    <div class="depoimento left" style="animation-delay: 0.2s;">
-      <p><strong>João:</strong> Nunca imaginei que poderia aprender inglês tão rápido. O método SALR é incrível!</p>
-      <span style="position: absolute; bottom: 5px; right: 10px; font-size: 0.7rem; color: #555;">14:32</span>
-    </div>
-    <div class="depoimento right" style="animation-delay: 0.5s;">
-      <p><strong>Maria:</strong> Estou finalmente conseguindo conversar em inglês sem medo. Recomendo demais!</p>
-      <span style="position: absolute; bottom: 5px; right: 10px; font-size: 0.7rem; color: #555;">14:35</span>
-    </div>
-    <div class="depoimento left" style="animation-delay: 0.8s;">
-      <p><strong>Carlos:</strong> O Professor Merson explica de um jeito que tudo fica fácil de entender. Vale cada minuto!</p>
-      <span style="position: absolute; bottom: 5px; right: 10px; font-size: 0.7rem; color: #555;">14:37</span>
-    </div>
-  </div>
-</section>
-
-<a href="https://pay.kiwify.com.br/8TvpK7G?afid=kuQvvVDJ" class="btn-flutuante">QUERO APRENDER AGORA</a>
-
-<script>
-  let time = 300; // 5 minutos
-  const timerDisplay = document.getElementById('timer');
-  function updateTimer() {
-    let minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    if(seconds < 10) seconds = '0' + seconds;
-    timerDisplay.textContent = minutes + ':' + seconds;
-    if(time > 0) {
-      time--;
-      setTimeout(updateTimer, 1000);
-    } else {
-      timerDisplay.textContent = "00:00";
-    }
-  }
-  updateTimer();
-</script>
-
-</body>
-</html>
+<section id="destaque
