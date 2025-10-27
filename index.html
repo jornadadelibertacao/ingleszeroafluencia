@@ -45,17 +45,17 @@
   #metodo-salr ul { list-style: none; padding: 0; margin-top: 20px; color: #555; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin-left: auto; margin-right: auto; }
   #metodo-salr li { margin-bottom: 10px; }
 
-  /* Depoimentos */
+  /* Depoimentos WhatsApp */
   #depoimentos .depoimento {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    border-left: 5px solid #1a1a1a;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 15px 20px;
+    border-radius: 20px;
+    max-width: 70%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    font-size: 1rem;
   }
+  .left { align-self: flex-start; background-color: #dcf8c6; border-radius: 20px 20px 20px 5px; }
+  .right { align-self: flex-end; background-color: #fff; border-radius: 20px 20px 5px 20px; border: 1px solid #ddd; }
 
   /* Botão flutuante */
   .btn-flutuante {
@@ -84,6 +84,7 @@
     .btn-primary { font-size: 1.2rem; padding: 15px 30px; }
     section h2 { font-size: 2rem; }
     section p { font-size: 1rem; }
+    #depoimentos .depoimento { max-width: 90%; }
   }
 </style>
 </head>
@@ -93,7 +94,6 @@
 <header>
   <h1>Inglês do Zero com Professor Merson</h1>
   <p>Aprenda inglês de forma prática, rápida e eficiente, do zero à conversação!</p>
-  <!-- Vídeo -->
   <iframe src="https://www.youtube.com/embed/uJ5jXR1Sdo8" frameborder="0" allowfullscreen></iframe>
 
   <!-- Cronômetro -->
@@ -118,52 +118,4 @@
   <h2>O Método SALR</h2>
   <p>O Método <strong>SALR</strong> é a abordagem exclusiva do Professor Merson para aprender inglês do zero. 
       Baseado em quatro pilares fundamentais, ele ajuda você a entender, memorizar e aplicar o inglês de forma rápida e prática:</p>
-  <ul>
-    <li>✅ <strong>S</strong> – Simplificação: aprender o essencial sem complicação</li>
-    <li>✅ <strong>A</strong> – Ação: prática constante para fixar o conteúdo</li>
-    <li>✅ <strong>L</strong> – Leitura e audição: absorver inglês real do dia a dia</li>
-    <li>✅ <strong>R</strong> – Repetição inteligente: revisar de forma estratégica para memorizar</li>
-  </ul>
-</section>
-
-<!-- Seção destaque do que vai aprender + alunos -->
-<section id="destaque-curso">
-  <h2>O que você vai aprender no curso</h2>
-  <p>Aprenda inglês de forma prática, entendendo gramática essencial, vocabulário do dia a dia, conversação natural e pronúncia correta. Tudo com foco em resultados rápidos!</p>
-  <p style="font-weight:bold;">Mais de <strong>1.000 alunos</strong> já transformaram seu inglês com o método do Professor Merson!</p>
-</section>
-
-<!-- Depoimentos estilo tradicional -->
-<section id="depoimentos" style="background-color: #f0f0f0;">
-  <h2>Depoimentos de Alunos</h2>
-  <div class="depoimento"><p><strong>João:</strong> Nunca imaginei que poderia aprender inglês tão rápido. O método SALR é incrível!</p></div>
-  <div class="depoimento"><p><strong>Maria:</strong> Estou finalmente conseguindo conversar em inglês sem medo. Recomendo demais!</p></div>
-  <div class="depoimento"><p><strong>Carlos:</strong> O Professor Merson explica de um jeito que tudo fica fácil de entender. Vale cada minuto!</p></div>
-</section>
-
-<!-- Botão flutuante -->
-<a href="https://pay.kiwify.com.br/8TvpK7G?afid=kuQvvVDJ" class="btn-flutuante">QUERO APRENDER AGORA</a>
-
-<!-- Script cronômetro -->
-<script>
-  let time = 300; // 5 minutos
-  const timerDisplay = document.getElementById('timer');
-
-  function updateTimer() {
-    let minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    if(seconds < 10) seconds = '0' + seconds;
-    timerDisplay.textContent = minutes + ':' + seconds;
-    if(time > 0) {
-      time--;
-      setTimeout(updateTimer, 1000);
-    } else {
-      timerDisplay.textContent = "00:00";
-    }
-  }
-
-  updateTimer();
-</script>
-
-</body>
-</html>
+  <ul
