@@ -5,72 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inglês do Zero à Fluência com Professor Merson</title>
 <style>
-  * { box-sizing: border-box; margin:0; padding:0; font-family: Arial, sans-serif; }
-  body { background:#f7f7f7; color:#1b1b1b; }
-
-  header {
-    text-align:center; padding:40px 20px; background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    color:#fff; animation:fadeInHeader 1.5s ease-out;
-  }
-  header h1 { font-size:2.8rem; margin-bottom:15px; text-shadow:2px2px5px rgba(0,0,0,0.5);}
-  header p { font-size:1.2rem; margin-bottom:20px;}
-  header video, header iframe { width:100%; max-width:900px; height:calc(100vw * 0.56); margin-bottom:20px; border-radius:10px; }
-
-  .btn-primary {
-    display:inline-block; background:linear-gradient(90deg,#25d366,#128c7e); color:#fff; font-weight:bold;
-    font-size:1.5rem; padding:20px 40px; border-radius:50px; text-transform:uppercase;
-    box-shadow:0 5px 20px rgba(0,0,0,0.4); text-decoration:none; transition: transform 0.3s, box-shadow 0.3s; animation:pulse 2s infinite;
-    margin-bottom:15px;
-  }
-  .btn-primary:hover { transform:scale(1.05); box-shadow:0 10px 25px rgba(0,0,0,0.5); }
-
-  .selo-container { margin-top:15px; display:flex; justify-content:center; gap:15px; flex-wrap:wrap; }
-  .selo-item { background:#fff; color:#0f2027; border-radius:50px; padding:10px 20px; font-weight:bold; font-size:1rem; display:flex; align-items:center; box-shadow:0 3px 10px rgba(0,0,0,0.2); gap:8px;}
-  .selo-item span{ font-size:1.3rem; }
-
-  section{ padding:60px 20px; }
-  section h2{ font-size:2.5rem; margin-bottom:20px; text-align:center; color:#0d1b2a;}
-  section p{ font-size:1.1rem; line-height:1.8; max-width:800px; margin:0 auto 20px auto; }
-
-  #metodo-salr ul{ list-style:none; padding:0; margin-top:20px; font-size:1.1rem; line-height:1.8; max-width:800px; margin-left:auto;margin-right:auto;}
-  #metodo-salr li{ margin-bottom:10px; }
-
-  /* Carrossel de depoimentos */
-  .carrossel-videos{ position:relative; max-width:800px; margin:0 auto; overflow:hidden; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.2);}
-  .videos-wrapper{ display:flex; transition:transform 0.5s ease; }
-  .videos-wrapper > div{ min-width:100%; text-align:center; padding:15px; }
-  .videos-wrapper video{ width:100%; border-radius:10px; }
-
-  .btn-flutuante{
-    position:fixed; bottom:20px; right:20px; z-index:9999; background:linear-gradient(90deg,#25d366,#128c7e); color:#fff;
-    font-weight:bold; font-size:1rem; padding:15px 25px; border-radius:50px; text-transform:uppercase; text-align:center;
-    text-decoration:none; box-shadow:0 5px 20px rgba(0,0,0,0.4); transition: transform 0.3s, box-shadow 0.3s; animation:pulse 2s infinite;
-  }
-  .btn-flutuante:hover{ transform:scale(1.1); box-shadow:0 10px 25px rgba(0,0,0,0.5); }
-
-  /* Pop-up de urgência */
-  #popup-urgencia{
-    display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7);
-    z-index:99999; justify-content:center; align-items:center;
-  }
-  #popup-urgencia .popup-conteudo{
-    background:#fff; padding:30px; border-radius:15px; text-align:center; max-width:400px; width:90%;
-  }
-  #popup-urgencia .popup-conteudo h2{ font-size:2rem; margin-bottom:15px; }
-  #popup-urgencia .popup-conteudo p{ font-size:1.1rem; margin-bottom:20px; }
-  #popup-urgencia .popup-conteudo a{
-    display:inline-block; background:#25d366; color:#fff; font-weight:bold; padding:15px 30px; border-radius:50px;
-    text-decoration:none; font-size:1.2rem;
-  }
-
-  @keyframes fadeInHeader { from {opacity:0; transform:translateY(-20px);} to {opacity:1; transform:translateY(0);} }
-  @keyframes pulse {0%,100%{transform:scale(1);}50%{transform:scale(1.05);} }
-
-  @media(max-width:768px){
-    header h1{ font-size:2.2rem;}
-    header p{ font-size:1rem;}
-    .btn-primary{ font-size:1.2rem; padding:15px 30px;}
-  }
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif;}
+body{background:#f7f7f7;color:#1b1b1b;}
+header{text-align:center;padding:40px 20px;background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:#fff;animation:fadeInHeader 1.5s ease-out;}
+header h1{font-size:2.8rem;margin-bottom:15px;text-shadow:2px 2px 5px rgba(0,0,0,0.5);}
+header p{font-size:1.2rem;margin-bottom:20px;}
+header video, header iframe{width:100%; max-width:900px; height:calc(100vw * 0.56); margin-bottom:20px; border-radius:10px;}
+.btn-primary{display:inline-block;background:linear-gradient(90deg,#25d366,#128c7e);color:#fff;font-weight:bold;font-size:1.5rem;padding:20px 40px;border-radius:50px;text-transform:uppercase;box-shadow:0 5px 20px rgba(0,0,0,0.4);text-decoration:none;transition: transform 0.3s, box-shadow 0.3s; animation:pulse 2s infinite;margin-bottom:15px;}
+.btn-primary:hover{transform:scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,0.5);}
+.selo-container{margin-top:15px;display:flex;justify-content:center;gap:15px;flex-wrap:wrap;}
+.selo-item{background:#fff;color:#0f2027;border-radius:50px;padding:10px 20px;font-weight:bold;font-size:1rem;display:flex;align-items:center;box-shadow:0 3px 10px rgba(0,0,0,0.2);gap:8px;}
+.selo-item span{font-size:1.3rem;}
+section{padding:60px 20px;}
+section h2{font-size:2.5rem;margin-bottom:20px;text-align:center;color:#0d1b2a;}
+section p{font-size:1.1rem;line-height:1.8;max-width:800px;margin:0 auto 20px auto;}
+#metodo-salr ul{list-style:none;padding:0;margin-top:20px;font-size:1.1rem;line-height:1.8;max-width:800px;margin-left:auto;margin-right:auto;}
+#metodo-salr li{margin-bottom:10px;}
+.btn-flutuante{position:fixed;bottom:20px;right:20px;z-index:9999;background:linear-gradient(90deg,#25d366,#128c7e);color:#fff;font-weight:bold;font-size:1rem;padding:15px 25px;border-radius:50px;text-transform:uppercase;text-align:center;text-decoration:none;box-shadow:0 5px 20px rgba(0,0,0,0.4);transition: transform 0.3s, box-shadow 0.3s;animation:pulse 2s infinite;}
+.btn-flutuante:hover{transform:scale(1.1);box-shadow:0 10px 25px rgba(0,0,0,0.5);}
+#popup-urgencia{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:99999;justify-content:center;align-items:center;}
+#popup-urgencia .popup-conteudo{background:#fff;padding:30px;border-radius:15px;text-align:center;max-width:400px;width:90%;}
+#popup-urgencia .popup-conteudo h2{font-size:2rem;margin-bottom:15px;}
+#popup-urgencia .popup-conteudo p{font-size:1.1rem;margin-bottom:20px;}
+#popup-urgencia .popup-conteudo a{display:inline-block;background:#25d366;color:#fff;font-weight:bold;padding:15px 30px;border-radius:50px;text-decoration:none;font-size:1.2rem;}
+.parede-mensagens{margin-top:10px;background:#e5ddd5;border-radius:15px;padding:10px;font-size:14px;display:flex;flex-direction:column;gap:5px;}
+.mensagem{padding:8px;border-radius:10px;position:relative;}
+.mensagem.bot{background:#fff;align-self:flex-start;}
+.mensagem.user{background:#dcf8c6;align-self:flex-end;}
+.mensagem .hora{font-size:11px;color:#888;position:absolute;bottom:2px;right:8px;}
+@keyframes fadeInHeader{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+@media(max-width:768px){header h1{font-size:2.2rem;}header p{font-size:1rem;}.btn-primary{font-size:1.2rem;padding:15px 30px;}}
 </style>
 </head>
 <body>
@@ -122,29 +87,45 @@
 </section>
 
 <section id="depoimentos" style="padding:60px 20px; background-color:#e6f0f3;">
-  <h2>Depoimentos de Alunos</h2>
-  <div class="carrossel-videos">
-    <div class="videos-wrapper">
-      <div>
-        <video controls>
-          <source src="alexandre.mp4" type="video/mp4">
-          Seu navegador não suporta vídeo.
-        </video>
-        <p><strong>Alexandre</strong>: "O método do Professor Merson mudou completamente meu inglês!"</p>
+  <h2 style="text-align:center; font-size:2.5rem; margin-bottom:40px;">Depoimentos de Alunos</h2>
+  <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+    
+    <!-- Depoimento 1 -->
+    <div style="width:300px; text-align:center;">
+      <video width="100%" controls>
+        <source src="alexandre.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+      <p><strong>Alexandre</strong>: "O método do Professor Merson mudou completamente meu inglês!"</p>
+      <div class="parede-mensagens">
+        <div class="mensagem bot"><strong>Alexandre</strong><br>Consegui finalmente conversar em inglês com confiança!<div class="hora">09:42</div></div>
+        <div class="mensagem user">Maravilha! Continue assim! 💪<div class="hora">09:45</div></div>
       </div>
-      <div>
-        <video controls>
-          <source src="andre_luiz.mp4" type="video/mp4">
-          Seu navegador não suporta vídeo.
-        </video>
-        <p><strong>Andre Luiz</strong>: "Agora consigo conversar sem medo e aprender rápido!"</p>
+    </div>
+
+    <!-- Depoimento 2 -->
+    <div style="width:300px; text-align:center;">
+      <video width="100%" controls>
+        <source src="andre_luiz.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+      <p><strong>Andre Luiz</strong>: "Agora consigo conversar sem medo e aprender rápido!"</p>
+      <div class="parede-mensagens">
+        <div class="mensagem bot"><strong>Andre</strong><br>Estou aplicando o método todos os dias!<div class="hora">11:05</div></div>
+        <div class="mensagem user">Excelente! Continue focado! 👏<div class="hora">11:10</div></div>
       </div>
-      <div>
-        <video controls>
-          <source src="anderson_henrique.mp4" type="video/mp4">
-          Seu navegador não suporta vídeo.
-        </video>
-        <p><strong>Anderson Henrique</strong>: "As aulas são claras e o método é eficiente!"</p>
+    </div>
+
+    <!-- Depoimento 3 -->
+    <div style="width:300px; text-align:center;">
+      <video width="100%" controls>
+        <source src="anderson_henrique.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+      <p><strong>Anderson Henrique</strong>: "As aulas são claras e o método é eficiente!"</p>
+      <div class="parede-mensagens">
+        <div class="mensagem bot"><strong>Anderson</strong><br>Finalmente entendo o inglês do dia a dia!<div class="hora">19:58</div></div>
+        <div class="mensagem user">Perfeito! Continue assim e logo estará fluente! 💪<div class="hora">20:02</div></div>
       </div>
     </div>
   </div>
@@ -152,49 +133,27 @@
 
 <a href="https://pay.kiwify.com.br/8TvpK7G?afid=kuQvvVDJ" class="btn-flutuante">QUERO APRENDER AGORA</a>
 
-<!-- Pop-up de urgência -->
 <div id="popup-urgencia">
   <div class="popup-conteudo">
-    <h2>Última Chance!</h2>
-    <p>O preço promocional acabou de terminar! Garanta agora seu acesso antes que aumente!</p>
+    <h2>Oferta Expirada!</h2>
+    <p>O tempo acabou! Aproveite agora antes que volte ao valor original.</p>
     <a href="https://pay.kiwify.com.br/8TvpK7G?afid=kuQvvVDJ">QUERO APRENDER AGORA</a>
   </div>
 </div>
 
 <script>
-  // Timer com efeito de urgência
-  let time = 300;
-  const timerDisplay = document.getElementById('timer');
-  const popup = document.getElementById('popup-urgencia');
-
-  function updateTimer(){
-    let minutes = Math.floor(time/60);
-    let seconds = time%60;
-    if(seconds<10) seconds='0'+seconds;
-    timerDisplay.textContent = minutes + ':' + seconds;
-
-    if(time<=0){
-      timerDisplay.textContent = "00:00";
-      timerDisplay.style.color="#ff4b2b";
-      timerDisplay.style.fontWeight="bold";
-      timerDisplay.style.animation="pulse 1s infinite";
-      popup.style.display="flex"; // exibe pop-up
-      return;
-    }
-    time--;
-    setTimeout(updateTimer,1000);
-  }
-  updateTimer();
-
-  // Carrossel automático de depoimentos
-  const wrapper = document.querySelector('.videos-wrapper');
-  const totalSlides = wrapper.children.length;
-  let index = 0;
-  setInterval(()=>{
-    index++;
-    if(index >= totalSlides) index=0;
-    wrapper.style.transform=`translateX(-${index*100}%)`;
-  },5000);
+let time=300;
+const timerDisplay=document.getElementById('timer');
+function updateTimer(){
+  let minutes=Math.floor(time/60);
+  let seconds=time%60;
+  if(seconds<10) seconds='0'+seconds;
+  timerDisplay.textContent=minutes+':'+seconds;
+  if(time>0){time--;setTimeout(updateTimer,1000);} 
+  else{timerDisplay.textContent="00:00";document.getElementById('popup-urgencia').style.display='flex';}
+}
+updateTimer();
 </script>
+
 </body>
 </html>
