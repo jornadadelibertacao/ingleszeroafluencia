@@ -85,7 +85,7 @@
       max-width:1100px;
       margin:30px auto;
       border-radius:14px;
-      box-shadow:0 16px 40px rgba(0,0,0,0.04);
+      box-shadow:0 16px 40px rgba(0,0,0,0.05);
       display:flex;
       flex-wrap:wrap;
       align-items:center;
@@ -94,27 +94,30 @@
     }
     .professor img{
       width:260px;height:260px;border-radius:50%;object-fit:cover;
-      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      box-shadow:0 10px 30px rgba(0,0,0,0.1);
     }
-    .professor-text{
-      max-width:620px;text-align:left;
-    }
-    .professor-text h2{color:#0d1b2a;margin-bottom:10px}
+    .professor-text{max-width:620px;text-align:left}
+    .professor-text h2{color:#0d1b2a;margin-bottom:10px;font-size:1.6rem}
     .professor-text p{color:#334155;line-height:1.6;font-size:1rem}
 
-    /* OUTRAS SEÇÕES (já existentes) */
-    .learn, .testimonials, .prints, .trust, .faq{max-width:1100px;margin:20px auto;padding:36px 20px;border-radius:12px}
-    .testimonials{background:#fff;text-align:center}
-    .prints{background:#f4f9ff;text-align:center}
-    .trust{background:#fff;text-align:center}
-    .faq{background:#fff}
-    .trust .btn-primary{margin-top:20px;position:static;transform:none;width:auto;max-width:420px}
+    /* OUTRAS SEÇÕES */
+    .trust .btn-primary{
+      margin-top:20px;
+      position:static;
+      transform:none;
+      width:auto;
+      max-width:420px;
+    }
 
-    /* FOOTER */
     footer{background:#07121a;color:#dbefff;text-align:center;padding:26px;margin-top:28px;font-size:.95rem}
 
-    /* WHATSAPP FLOAT */
-    .whatsapp-float{position:fixed;bottom:18px;right:18px;width:64px;height:64px;border-radius:50%;background-color:#25d366;background-image:url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');background-repeat:no-repeat;background-position:center;background-size:62%;box-shadow:0 12px 36px rgba(2,6,23,0.18);z-index:999}
+    .whatsapp-float{
+      position:fixed;bottom:18px;right:18px;width:64px;height:64px;
+      border-radius:50%;background-color:#25d366;
+      background-image:url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');
+      background-repeat:no-repeat;background-position:center;background-size:62%;
+      box-shadow:0 12px 36px rgba(2,6,23,0.18);z-index:999;
+    }
   </style>
 </head>
 <body>
@@ -137,23 +140,23 @@
         <div class="urgencia">⏰ Vagas limitadas — oferta promocional por tempo limitado!</div>
       </div>
 
-      <div class="cta-col" style="margin-top:16px">
+      <div class="cta-col">
         <a href="https://pay.kiwify.com.br/8TvpK7G?afid=kuQvvVDJ" class="btn-primary" id="buyBtn">QUERO APRENDER AGORA</a>
-        <a href="https://wa.me/5511983836605?text=Ol%C3%A1!+Vi+a+p%C3%A1gina+do+curso+e+gostaria+de+tirar+uma+d%C3%BAvida+rapidamente" class="btn-whatsapp" id="waBtn" target="_blank">Falar com um especialista no WhatsApp</a>
+        <a href="https://wa.me/5511983836605?text=Ol%C3%A1!+Vi+a+p%C3%A1gina+do+curso+e+gostaria+de+tirar+uma+d%C3%BAvida+rapidamente" class="btn-whatsapp" target="_blank">Falar com um especialista no WhatsApp</a>
       </div>
     </div>
   </header>
 
   <!-- MÉTODO SALR -->
-  <section class="method">
+  <section class="method" id="metodo-salr">
     <h2>Conheça o Método SALR</h2>
     <p>O Método SALR foi criado para gerar resultados rápidos e duradouros, com foco em prática, imersão e repetição inteligente — ideal para quem começa do zero.</p>
 
     <div class="pillars">
-      <div class="pillar see"><h3>🟩 S — See (Ver)</h3><p>Aprenda visualmente com imagens e palavras.</p></div>
-      <div class="pillar ask"><h3>🟦 A — Ask (Perguntar)</h3><p>Pratique com perguntas simples e reais no dia a dia.</p></div>
-      <div class="pillar listen"><h3>🟧 L — Listen (Ouvir)</h3><p>Desenvolva a escuta com áudios e falas naturais.</p></div>
-      <div class="pillar repeat"><h3>🟥 R — Repeat (Repetir)</h3><p>Consolide tudo com prática guiada e repetição eficaz.</p></div>
+      <div class="pillar see"><h3>🟩 S — See (Ver)</h3><p>Associação entre imagens e palavras: aprenda visualmente.</p></div>
+      <div class="pillar ask"><h3>🟦 A — Ask (Perguntar)</h3><p>Crie um ambiente de imersão com perguntas e respostas reais.</p></div>
+      <div class="pillar listen"><h3>🟧 L — Listen (Ouvir)</h3><p>Treine o ouvido para entender o inglês natural e fluente.</p></div>
+      <div class="pillar repeat"><h3>🟥 R — Repeat (Repetir)</h3><p>Repetição guiada para consolidar o aprendizado e ganhar confiança.</p></div>
     </div>
   </section>
 
@@ -162,42 +165,42 @@
     <img src="professor-merson.jpg" alt="Professor Merson">
     <div class="professor-text">
       <h2>Quem é o Professor Merson</h2>
-      <p>O Professor Merson é especialista em ensino de inglês há mais de <strong>8 anos</strong>, com foco em transformar iniciantes em falantes confiantes através do seu exclusivo <strong>Método SALR</strong>.  
-      <br><br>
-      Ao longo da sua jornada, já ajudou <strong>mais de 6.000 alunos</strong> a destravar o inglês e alcançar a fluência de forma prática, rápida e motivadora.  
-      <br><br>
-      Reconhecido por sua didática simples e envolvente, Merson acredita que <em>qualquer pessoa pode aprender inglês</em> quando segue o método certo e aplica o aprendizado de forma leve e contínua.</p>
+      <p>O Professor Merson é especialista no ensino de inglês há mais de <strong>8 anos</strong>, com foco em ajudar iniciantes a alcançarem fluência de forma prática e leve através do seu exclusivo <strong>Método SALR</strong>.<br><br>
+      Ao longo da sua trajetória, já formou <strong>mais de 6.000 alunos</strong> no Brasil e no exterior, transformando a vida de quem achava que nunca conseguiria falar inglês.<br><br>
+      Reconhecido pela didática simples e empática, acredita que qualquer pessoa pode aprender inglês com o método certo e constância. Sua missão é fazer você falar inglês com confiança, mesmo que esteja começando do zero.</p>
     </div>
   </section>
 
-  <!-- (restante da página igual ao anterior: o que vai aprender, depoimentos, prints, garantia, FAQ, footer, scripts) -->
-  <!-- ... [mantém o mesmo conteúdo das outras seções que você já tinha] ... -->
+  <!-- O QUE VAI APRENDER (continua normalmente com o seu conteúdo) -->
+  <!-- ... resto igual ao seu HTML anterior (o que vai aprender, depoimentos, prints, garantia, FAQ, footer etc.) ... -->
 
   <footer>
     © 2025 Curso Inglês do Zero à Fluência — Página afiliada. Todos os direitos reservados.
   </footer>
 
-  <!-- WHATSAPP FLUTUANTE -->
   <a class="whatsapp-float" href="https://wa.me/5511983836605?text=Ol%C3%A1!+Quero+saber+mais+sobre+o+curso+Ingl%C3%AAs+do+Zero+%C3%A0+Flu%C3%AAncia" target="_blank" aria-label="Fale conosco no WhatsApp"></a>
 
-  <!-- FAQ Script -->
   <script>
+    // FAQ toggle
     document.querySelectorAll('.faq-item').forEach(function(item){
       var q = item.querySelector('.faq-question');
       var a = item.querySelector('.faq-answer');
       var t = item.querySelector('.toggle');
       q.addEventListener('click', function(){
         var open = a.style.display === 'block';
-        document.querySelectorAll('.faq-answer').forEach(function(x){x.style.display='none';});
-        document.querySelectorAll('.toggle').forEach(function(x){x.textContent='+';});
-        if(!open){a.style.display='block';t.textContent='−';}
+        document.querySelectorAll('.faq-answer').forEach(x=>x.style.display='none');
+        document.querySelectorAll('.toggle').forEach(x=>x.textContent='+');
+        if(!open){ a.style.display='block'; t.textContent='−'; }
       });
     });
-    document.querySelectorAll('.btn-primary').forEach(function(btn){
-      btn.addEventListener('click', function(){
+
+    // Pixel event
+    document.querySelectorAll('.btn-primary').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
         if(window.fbq){ try{ fbq('track','InitiateCheckout'); }catch(e){} }
       });
     });
   </script>
+
 </body>
 </html>
