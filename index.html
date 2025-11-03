@@ -179,13 +179,17 @@ fbq('track', 'PageView'); id="buyBtn">QUERO APRENDER AGORA</a>
   </div>  
 </div>
 <!-- Seção: Professor Emerson Nogueira -->
-<section id="professor" style="background: #fff; padding: 100px 20px 100px 20px; text-align: center; color: #000; opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease;">
+<section id="professor" style="background: #fff; padding: 100px 20px 100px 20px; color: #000; opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease;">
   <div style="max-width: 900px; margin: 0 auto;">
-    <h2 style="font-size: 2.2em; font-weight: 800; margin-bottom: 60px; color: #000;">
+
+    <!-- Título alinhado à esquerda -->
+    <h2 style="font-size: 2.2em; font-weight: 800; margin-bottom: 60px; color: #000; text-align: left;">
       Conheça o Professor
     </h2>
 
+    <!-- Conteúdo centralizado -->
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
       <!-- Moldura circular estilo Instagram -->
       <div style="
         width: 180px;
@@ -199,21 +203,41 @@ fbq('track', 'PageView'); id="buyBtn">QUERO APRENDER AGORA</a>
         box-shadow: 0 6px 25px rgba(0,0,0,0.15);
         margin-bottom: 25px;
       ">
-        <img src="prints/printsimagem-perfil.professor.jpg" alt="Professor Emerson Nogueira"
+        <img src="prints/imagem-perfil.professor.jpg" alt="Professor Emerson Nogueira"
           style="width: 170px; height: 170px; border-radius: 50%; object-fit: cover;" />
       </div>
 
       <!-- Texto -->
-      <div>
+      <div style="margin-top: 5px; text-align: center;">
         <h3 style="font-size: 1.8em; font-weight: 700; margin-bottom: 8px; color: #000;">
           Emerson Nogueira
         </h3>
-        <p style="font-size: 1.05em; color: #777; margin-bottom: 20px;">@professormerson</p>
+        <p style="font-size: 1.05em; color: #555; margin-bottom: 20px;">
+          @professormerson
+        </p>
         <p style="max-width: 520px; margin: 0 auto; font-size: 1.15em; line-height: 1.8; color: #000;">
           Professor de inglês, lecionei mais de 4 mil alunos em meus cursos nos últimos 8 anos.
         </p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Script para fade-in suave -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const section = document.querySelector("#professor");
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      section.style.opacity = "1";
+      section.style.transform = "translateY(0)";
+      observer.disconnect();
+    }
+  }, { threshold: 0.4 });
+  observer.observe(section);
+});
+</script>
+
 
     <!-- Estatísticas -->
     <div style="margin-top: 70px;">
