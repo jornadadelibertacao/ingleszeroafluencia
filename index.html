@@ -1,289 +1,240 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>PAX — O Caminho da Calma Divina</title>
-<meta name="description" content="Método direto para reduzir ansiedade e recuperar controle. Acesse agora por R$39,90.">
-
+<meta name="description" content="Programa prático para reduzir ansiedade, recuperar sono e voltar a focar. Acesse agora por R$39,90.">
 <style>
+  /* MOBILE-FIRST, WARM & PREMIUM */
   :root{
-    --bg:#0f0f10;
-    --card:#ffffff;
-    --muted:#9aa0a6;
-    --accent:#000000;
-    --accent-2:#C59A3A;
-    --success:#0b8a5f;
+    --bg: #fff8f4;
+    --card: #ffffff;
+    --muted: #6b6b6b;
+    --accent: #d1842f; /* warm gold */
+    --accent-2: #2b6f6f; /* teal */
+    --text: #111219;
   }
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:#0b0b0b;background:linear-gradient(180deg,#fafafa 0%, #f2f2f2 100%);-webkit-font-smoothing:antialiased}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial; -webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:980px;margin:30px auto;padding:24px}
+  .page{max-width:900px;margin:0 auto;padding:18px}
   /* HERO */
-  .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;padding:36px;background:#fff;border-radius:12px;box-shadow:0 6px 30px rgba(9,10,11,0.06)}
-  .eyebrow{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:8px}
-  h1{font-size:34px;line-height:1.05;margin:0 0 12px}
-  p.lead{margin:0 0 18px;color:#222;font-size:16px}
-  .cta-row{display:flex;gap:12px;align-items:center}
-  .btn{background:#000;color:#fff;padding:14px 20px;border-radius:10px;font-weight:700;display:inline-block;box-shadow:0 6px 20px rgba(2,2,2,0.15)}
-  .btn.secondary{background:transparent;color:#000;border:2px solid #e6e6e6;font-weight:700}
-  .price{font-weight:800;font-size:18px;margin-left:8px}
-  .badge{display:inline-block;background:linear-gradient(90deg,#fff,#fbf7ee);padding:8px 12px;border-radius:999px;border:1px solid rgba(0,0,0,0.04);font-weight:700;margin-left:6px}
-  .hero-right{background:linear-gradient(180deg,#fff,#fbfbfb);padding:18px;border-radius:10px;box-shadow:0 6px 20px rgba(12,12,12,0.04);display:flex;flex-direction:column;gap:12px;align-items:center}
-  .mockup{width:100%;height:320px;border-radius:8px;background:linear-gradient(180deg,#f8f8f8,#ffffff);display:flex;align-items:center;justify-content:center;color:#999;font-size:14px}
-  /* SECTIONS */
-  section{margin-top:26px}
-  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  .card{background:#fff;padding:22px;border-radius:10px;box-shadow:0 6px 20px rgba(12,12,12,0.04)}
-  ul.clean{padding-left:18px;margin:12px 0}
-  .features li{margin:12px 0;font-weight:600}
+  .hero{background:linear-gradient(180deg,#fff 0%, #fff8f4 100%);border-radius:14px;padding:18px;box-shadow:0 8px 30px rgba(15,15,15,0.06)}
+  .top-meta{font-size:13px;color:var(--accent-2);font-weight:700;margin-bottom:8px;display:inline-block}
+  h1{font-size:28px;line-height:1.05;margin:0 0 10px}
+  p.lead{margin:0 0 12px;color:#2f2f2f;font-size:15px}
+  .hero-grid{display:flex;gap:12px;align-items:center}
+  .mock{flex:1;background:linear-gradient(180deg,#fff,#f6f1eb);height:210px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#9a8f85;font-weight:700}
+  .cta-block{width:220px;min-width:160px;display:flex;flex-direction:column;gap:10px}
+  .price-tag{font-weight:800;color:var(--accent);font-size:18px}
+  .btn-primary{background:var(--accent-2);color:#fff;padding:14px 16px;border-radius:12px;font-weight:800;text-align:center;display:block;box-shadow:0 8px 20px rgba(43,111,111,0.16)}
+  .btn-ghost{background:transparent;border:2px solid rgba(43,111,111,0.08);padding:12px;border-radius:12px;text-align:center}
   .small{font-size:13px;color:var(--muted)}
-  .center{text-align:center}
+  /* SECTIONS */
+  section{margin-top:18px}
+  .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 20px rgba(12,12,12,0.04)}
+  .list{padding-left:18px;margin:8px 0}
+  .list li{margin:10px 0;font-weight:700}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .feature-box{padding:14px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbf6f0)}
   /* TESTIMONIALS */
-  .test-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .test{padding:18px;border-radius:10px;background:#fff;box-shadow:0 6px 20px rgba(10,10,10,0.03)}
-  .name{font-weight:700;margin-top:8px}
-  .pill{display:inline-block;background:#f2f2f2;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}
-  /* GUARANTEE */
-  .guarantee{display:flex;gap:16px;align-items:center;padding:18px;border-radius:10px;background:#fff}
-  .faq{display:grid;gap:12px}
-  .faq-item{background:#fff;padding:14px;border-radius:8px}
-  .sticky-cta{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;background:#000;color:#fff;padding:12px 18px;border-radius:999px;z-index:9999;box-shadow:0 8px 30px rgba(2,2,2,0.18);display:flex;gap:12px;align-items:center}
-  .popout{position:fixed;left:18px;bottom:20px;background:#fff;padding:12px 14px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.12);display:none;font-size:14px;z-index:999}
-  .online-box{position:fixed;right:18px;bottom:20px;background:#000;color:#fff;padding:10px 14px;border-radius:10px;font-weight:700;z-index:999}
-  footer{margin-top:30px;text-align:center;color:var(--muted);font-size:13px}
-  @media(max-width:920px){
-    .hero{grid-template-columns:1fr;gap:18px}
-    .test-row{grid-template-columns:1fr}
-    .grid-2{grid-template-columns:1fr}
-    .sticky-cta{display:none}
-    .mockup{height:260px}
+  .test{display:flex;gap:12px;align-items:center;padding:12px;background:#fff;border-radius:10px}
+  .avatar{width:56px;height:56px;border-radius:999px;background:#f2ebe0;display:flex;align-items:center;justify-content:center;font-weight:700;color:#6b5b4a}
+  .name{font-weight:800}
+  .quote{font-size:14px;color:#333}
+  /* FAQ */
+  .faq-item{padding:12px;border-radius:8px;background:#fff;margin-bottom:10px}
+  /* STICKY CTA (mobile) */
+  .sticky{position:fixed;left:16px;right:16px;bottom:18px;background:linear-gradient(90deg,var(--accent-2),#1f5858);color:#fff;padding:12px;border-radius:12px;display:flex;justify-content:space-between;align-items:center;z-index:999}
+  .sticky .price{font-weight:800}
+  /* responsive */
+  @media(min-width:820px){
+    .hero{padding:28px}
+    h1{font-size:36px}
+    .hero-grid{align-items:start}
+    .mock{height:260px}
   }
 </style>
 </head>
 <body>
-
-<div class="wrap">
+<div class="page">
 
   <!-- HERO -->
-  <header class="hero" id="top">
-    <div>
-      <div class="eyebrow">PAX — método direto | Oferta especial</div>
-      <h1>Quando a mente não desliga, a vida trava. Pare de sobreviver — recupere controle hoje.</h1>
-      <p class="lead">Programa prático e direto para reduzir crises de ansiedade, diminuir a tensão diária e recuperar foco — sem enrolação e sem terapias longas.</p>
-
-      <div class="cta-row">
-        <a class="btn" id="primaryCTA" href="https://pay.kiwify.com.br/r3bathm" target="_blank">ACESSAR AGORA — R$ 39,90</a>
-        <div class="small">Pagamento seguro • Acesso imediato</div>
-      </div>
-
-      <div style="margin-top:18px;color:var(--muted);font-size:14px">
-        Últimas ações: <span id="stockCount" style="font-weight:800">25</span> vagas com esse preço.
-      </div>
+  <header class="hero">
+    <div class="top-meta">PAX — oferta especial por tempo limitado</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-top:10px;flex-direction:column">
+      <h1>Quando a mente não para, a vida empaca. Recupere controle e sono sem enrolação.</h1>
+      <p class="lead">Programa prático e direto para reduzir crises, melhorar sono e retomar foco. Acesso imediato — aplicável já no primeiro dia.</p>
     </div>
 
-    <aside class="hero-right" aria-hidden="true">
-      <div class="pill">Programa em formato digital</div>
-      <div class="mockup">Vídeo + Áudios + Roteiros práticos</div>
-      <div style="width:100%;display:flex;gap:10px;justify-content:space-between">
-        <div style="font-size:13px;color:var(--muted)">Entrega: Acesso imediato</div>
-        <div style="font-size:13px;color:var(--muted)">Suporte via e-mail</div>
+    <div class="hero-grid" style="margin-top:14px;flex-direction:column">
+      <div style="width:100%;display:flex;gap:12px;flex-direction:column">
+        <div class="mock" aria-hidden="true">
+          IMAGEM / VÍDEO (substitua pelo seu asset: 1080x1080 ou 16:9)
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;justify-content:space-between">
+          <div>
+            <div class="price-tag">ACESSO ÚNICO — R$ 39,90</div>
+            <div class="small">Pagamento seguro • Acesso imediato</div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <a class="btn-primary" href="https://pay.kiwify.com.br/r3bathm" target="_blank">ACESSAR AGORA — R$ 39,90</a>
+            <a class="btn-ghost" href="#o-que-voce-recebe">VER CONTEÚDO</a>
+          </div>
+        </div>
       </div>
-    </aside>
+    </div>
   </header>
 
-  <!-- O QUE VOCÊ RECEBE -->
-  <section>
+  <!-- O QUE RECEBE -->
+  <section id="o-que-voce-recebe" style="margin-top:18px">
     <div class="card">
-      <h2>O que você recebe (5–7 entregas práticas)</h2>
-      <ul class="clean features">
-        <li>1. Módulo 1 — Emergência: técnicas para reduzir uma crise em minutos (Áudio + Guia rápido).</li>
-        <li>2. Módulo 2 — Rotina: roteiro diário simples para reduzir ansiedade persistente.</li>
-        <li>3. Módulo 3 — Sono e recuperação: protocolo de 7 noites para melhorar sono e reset mental.</li>
-        <li>4. Módulo 4 — Foco e produtividade: exercícios práticos para recuperar clareza e executar tarefas.</li>
-        <li>5. Bônus: 3 meditações guiadas curtas (3–7 min) para usar no dia a dia.</li>
-        <li>6. Bônus extra: roteiro de 5 passos para transformar seu dia (checklist pronto).</li>
-        <li>7. Material de apoio: PDF resumão com passos e links rápidos.</li>
+      <h2>O que você recebe — formato passo a passo (5–7 entregas)</h2>
+      <ul class="list">
+        <li>Módulo 1 – SOS: protocolo de 3 passos para reduzir crise em minutos (áudio + rápido exercício).</li>
+        <li>Módulo 2 – Rotina prática: 7 rotinas diárias de 5–10 min para reduzir ansiedade crônica.</li>
+        <li>Módulo 3 – Sono restaurador: técnica de 7 noites para reset do sono.</li>
+        <li>Módulo 4 – Foco & ação: scripts para retomar produtividade sem paralisar.</li>
+        <li>Bônus 1 – Áudios práticos (3 a 7 min) para emergência, relaxamento e foco.</li>
+        <li>Bônus 2 – Checklist “Transforme seu dia”: 5 passos acionáveis.</li>
       </ul>
-
-      <p class="small">Formato: vídeos curtos, áudios, PDF. Tudo pensado para aplicar já — sem teoria longa.</p>
-
-      <div style="margin-top:18px">
-        <a class="btn" href="https://pay.kiwify.com.br/r3bathm" target="_blank">GARANTIR ACESSO — R$ 39,90</a>
+      <div style="margin-top:12px;display:flex;gap:10px">
+        <a class="btn-primary" href="https://pay.kiwify.com.br/r3bathm" target="_blank">GARANTIR ACESSO — R$ 39,90</a>
+        <div class="small" style="align-self:center">Acesso imediato • Download dos áudios</div>
       </div>
     </div>
   </section>
 
-  <!-- PARA QUEM É / PROBLEMAS -->
-  <section>
-    <div class="grid-2">
-      <div class="card">
-        <h3>Isso é para você se...</h3>
-        <ul class="clean">
-          <li>Você acorda já tenso(a) e passa o dia no limite;</li>
-          <li>Tem pensamentos que não param e atrapalham tarefas simples;</li>
-          <li>Não consegue dormir por ansiedade ou acorda cansado(a);</li>
-          <li>Evita se expor, eventos ou decisões por medo/ansiedade;</li>
-          <li>Já tentou “respirar fundo” e nada muda de verdade.</li>
+  <!-- PROBLEMAS -->
+  <section style="margin-top:16px">
+    <div class="two-col">
+      <div class="feature-box">
+        <h3>Isso é pra você se...</h3>
+        <ul class="list" style="padding-left:14px">
+          <li>Acorda ansioso(a) e já começa o dia no limite</li>
+          <li>Tem pensamentos que travam decisões simples</li>
+          <li>Não dorme bem por causa da mente acelerada</li>
         </ul>
-        <p class="small">Se identificou com pelo menos uma das situações acima, o PAX é feito para reduzir esse peso — com passos claros e imediatos.</p>
       </div>
-
-      <div class="card">
-        <h3>Como o PAX age sobre esses pontos</h3>
-        <ul class="clean">
-          <li><strong>Redução rápida:</strong> técnicas aplicáveis no momento que você mais precisa.</li>
-          <li><strong>Reforço diário:</strong> pequenas práticas que acumulam efeito.</li>
-          <li><strong>Sono restaurador:</strong> protocolos que melhoram a qualidade do sono.</li>
-          <li><strong>Plano objetivo:</strong> não é terapia longa — é ação prática para resultados.</li>
+      <div class="feature-box">
+        <h3>Como o PAX age</h3>
+        <ul class="list" style="padding-left:14px">
+          <li>Intervenções imediatas para crises</li>
+          <li>Ritual diário curto para reduzir ansiedade acumulada</li>
+          <li>Ferramentas práticas para sono e foco</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- PROVAS SOCIAIS -->
-  <section>
-    <h2 class="center">Quem já testou</h2>
-    <div class="test-row" style="margin-top:14px">
-      <div class="test">
-        <div style="height:12px;width:56px;background:#f2f2f2;border-radius:6px"></div>
-        <p style="margin-top:12px">"Eu consegui reduzir crises noturnas em 3 dias. Ferramenta prática, direta." </p>
-        <div class="name">Mariana, 38 — SP</div>
-      </div>
-      <div class="test">
-        <div style="height:12px;width:56px;background:#f2f2f2;border-radius:6px"></div>
-        <p style="margin-top:12px">"Simples de aplicar. Já me senti com mais foco e menos pânico no trabalho."</p>
-        <div class="name">Patrícia, 42 — RJ</div>
-      </div>
-      <div class="test">
-        <div style="height:12px;width:56px;background:#f2f2f2;border-radius:6px"></div>
-        <p style="margin-top:12px">"O protocolo do sono é direto e funciona. Recomendo."</p>
-        <div class="name">Renata, 35 — MG</div>
+  <!-- BENEFÍCIOS EM DESTAQUE -->
+  <section style="margin-top:16px">
+    <div class="card">
+      <h3>Benefícios práticos</h3>
+      <div style="display:flex;gap:8px;flex-direction:column">
+        <div style="display:flex;gap:8px;align-items:center"><div style="width:8px;height:8px;background:var(--accent);border-radius:999px"></div><div><strong>Resultados rápidos</strong> — aplique na hora que precisar.</div></div>
+        <div style="display:flex;gap:8px;align-items:center"><div style="width:8px;height:8px;background:var(--accent);border-radius:999px"></div><div><strong>Aplicável no trabalho</strong> — scripts prontos para uso.</div></div>
+        <div style="display:flex;gap:8px;align-items:center"><div style="width:8px;height:8px;background:var(--accent);border-radius:999px"></div><div><strong>Fácil de seguir</strong> — sem teoria longa.</div></div>
       </div>
     </div>
-
-    <div style="margin-top:16px" class="center small">Depoimentos reais de clientes — resultados individuais variam.</div>
   </section>
 
-  <!-- BONUS -->
-  <section>
-    <div class="card">
-      <h3>Bônus especiais</h3>
-      <ul class="clean">
-        <li><strong>Checklist “Transforme seu dia”:</strong> 5 passos rápidos para virar o dia a favor da calma.</li>
-        <li><strong>Áudios práticos:</strong> 3 áudios para uso imediato em crise, descanso e foco.</li>
-        <li><strong>Material de apoio:</strong> PDF com scripts prontos para aplicar no trabalho e em casa.</li>
-      </ul>
+  <!-- DEPOIMENTOS -->
+  <section style="margin-top:16px">
+    <h3>Depoimentos</h3>
+    <div style="display:flex;gap:12px;flex-direction:column;margin-top:10px">
+      <div class="test">
+        <div class="avatar">M</div>
+        <div>
+          <div class="quote">"Reduzi crises noturnas em poucos dias. Simples e direto."</div>
+          <div class="name small">Mariana, 38 — SP</div>
+        </div>
+      </div>
+      <div class="test">
+        <div class="avatar">P</div>
+        <div>
+          <div class="quote">"Melhorei sono e foco. Uso os áudios todos os dias."</div>
+          <div class="name small">Patrícia, 42 — RJ</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- GARANTIA + BONUS -->
+  <section style="margin-top:16px">
+    <div class="card">
+      <h3>Bônus & Garantia</h3>
+      <p class="small">Bônus: checklist "Transforme seu dia" + 3 áudios rápidos. Garantia de 7 dias: teste e peça reembolso se não funcionar — sem perguntas.</p>
       <div style="margin-top:12px">
-        <a class="btn" href="https://pay.kiwify.com.br/r3bathm" target="_blank">QUERO ACESSAR AGORA — R$ 39,90</a>
+        <a class="btn-primary" href="https://pay.kiwify.com.br/r3bathm" target="_blank">QUERO AGORA — R$ 39,90</a>
       </div>
     </div>
   </section>
 
-  <!-- GARANTIA -->
-  <section>
-    <div class="guarantee">
-      <div style="flex:1">
-        <h3>Garantia prática de 7 dias</h3>
-        <p class="small">Teste os módulos e as práticas por 7 dias. Se não sentir diferença prática, peça reembolso. Sem perguntas.</p>
-      </div>
-      <div style="min-width:220px;text-align:right">
-        <div style="font-weight:800;font-size:18px">Oferta única</div>
-        <div style="color:var(--muted);margin-top:6px">Acesso imediato • Download dos áudios</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQs -->
-  <section>
+  <!-- FAQ -->
+  <section style="margin-top:16px">
     <h3>Perguntas frequentes</h3>
-    <div class="faq" style="margin-top:10px">
-      <div class="faq-item">
-        <strong>Quanto tempo preciso investir por dia?</strong>
-        <p class="small">Os módulos são curtos. Comece com 5–10 minutos por dia; resultados práticos aparecem rápido se aplicado com consistência.</p>
-      </div>
-      <div class="faq-item">
-        <strong>É terapia?</strong>
-        <p class="small">Não. É um programa prático de técnicas e rotinas para reduzir ansiedade e recuperar controle. Não substitui terapia quando necessária.</p>
-      </div>
-      <div class="faq-item">
-        <strong>Formato de entrega?</strong>
-        <p class="small">Acesso imediato via área do aluno. Vídeos, áudios e PDFs para baixar.</p>
-      </div>
+    <div style="margin-top:10px">
+      <div class="faq-item"><strong>Quanto tempo por dia?</strong><div class="small">5–10 minutos em rotinas; áudios de 3–7 minutos.</div></div>
+      <div class="faq-item"><strong>É terapia?</strong><div class="small">Não substitui terapia. É um programa prático com técnicas e rotinas.</div></div>
+      <div class="faq-item"><strong>Como recebo?</strong><div class="small">Acesso imediato via área do aluno — vídeos, áudios e PDFs.</div></div>
     </div>
   </section>
 
   <!-- FINAL CTA -->
-  <section style="margin-top:20px">
-    <div class="card center">
-      <h2>Pronto para tomar uma atitude hoje?</h2>
-      <p class="small">Acesso imediato, material prático e garantia de 7 dias.</p>
-      <a class="btn" href="https://pay.kiwify.com.br/r3bathm" target="_blank">ACESSAR AGORA — R$ 39,90</a>
-      <div style="margin-top:12px;color:var(--muted);font-size:13px">Pagamento seguro • Cartão, Pix e boleto</div>
+  <section style="margin-top:18px">
+    <div class="card" style="text-align:center">
+      <h2>Pronto para parar de sobreviver e começar a viver?</h2>
+      <p class="small">Acesso imediato • Material prático • Garantia 7 dias</p>
+      <a class="btn-primary" href="https://pay.kiwify.com.br/r3bathm" target="_blank">ACESSAR AGORA — R$ 39,90</a>
     </div>
   </section>
 
-  <footer>
-    <div style="margin-top:18px">© <strong>PAX</strong> — Direitos reservados • Política de privacidade e termos aplicáveis</div>
+  <footer style="margin-top:18px;text-align:center;color:var(--muted);font-size:13px">
+    © PAX — Política de privacidade e termos aplicáveis
   </footer>
 </div>
 
-<!-- POP-OUTS / PEOPLE ONLINE -->
-<div id="purchasePop" class="popout"></div>
-<div id="onlineBox" class="online-box">23 pessoas visualizando agora</div>
+<!-- STICKY CTA E POP-UPS -->
+<div id="sticky" class="sticky" style="display:none">
+  <div style="font-weight:800">ACESSAR AGORA</div>
+  <div class="price" style="margin-left:12px;font-weight:800">R$ 39,90</div>
+  <a class="btn-primary" href="https://pay.kiwify.com.br/r3bathm" target="_blank" style="margin-left:12px">Comprar</a>
+</div>
+
+<div id="purchasePop" style="position:fixed;left:12px;bottom:86px;background:#fff;padding:10px;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,0.12);display:none;z-index:999;font-size:13px"></div>
+<div id="onlineBox" style="position:fixed;right:12px;bottom:86px;background:var(--accent-2);color:#fff;padding:8px 10px;border-radius:10px;font-weight:700;z-index:999;display:none"></div>
 
 <script>
-  // ------- Config simples de popouts + online ----------
-  const buyers = [
-    "Ana, SP — acabou de comprar",
-    "Carla, RJ — garantiu acesso",
-    "Juliana, MG — finalizou a compra agora",
-    "Patrícia, BA — adquiriu o PAX",
-    "Renata, PR — comprou há segundos"
-  ];
-
-  function showPurchase(){
-    const box = document.getElementById('purchasePop');
-    const txt = buyers[Math.floor(Math.random()*buyers.length)];
-    box.innerText = txt;
-    box.style.display = 'block';
-    setTimeout(()=>{ box.style.display = 'none'; }, 4500);
+  // show sticky on small screens
+  function toggleSticky(){
+    const s = document.getElementById('sticky');
+    if(window.innerWidth <= 820) s.style.display='flex'; else s.style.display='none';
   }
-  // mostrar em inicio para dar credibilidade
-  setTimeout(showPurchase, 2200);
-  setInterval(showPurchase, 11000 + Math.floor(Math.random()*7000));
-
-  function updateOnline(){
-    const box = document.getElementById('onlineBox');
-    const n = Math.floor(Math.random() * (68 - 12 + 1)) + 12;
-    box.innerText = n + " pessoas visualizando agora";
-  }
-  updateOnline();
-  setInterval(updateOnline, 7000);
-
-  // Simular redução de "estoque" para urgência (não invente números fora do controle)
-  let stock = 25;
-  const stockElem = document.getElementById('stockCount');
-  function decreaseStock(){
-    if(stock > 6){
-      stock = stock - (Math.random() < 0.45 ? 1 : 0);
-      stockElem.innerText = stock;
-    }
-  }
-  setInterval(decreaseStock, 14000);
-
-  // Sticky CTA para mobile (criar botão fixo)
-  const sticky = document.createElement('div');
-  sticky.className = 'sticky-cta';
-  sticky.innerHTML = '<div style="font-weight:700">ACESSAR AGORA — R$ 39,90</div><a href="https://pay.kiwify.com.br/r3bathm" target="_blank" style="margin-left:12px" class="btn">Comprar</a>';
-  document.body.appendChild(sticky);
-
-  // fechar sticky em telas grandes?
-  function toggleSticky(){ if(window.innerWidth > 920){ sticky.style.display = 'none'; } else { sticky.style.display = 'flex'; } }
   toggleSticky();
   window.addEventListener('resize', toggleSticky);
-</script>
 
+  // popouts
+  const buyers = ["Ana, SP – acabou de comprar","Carla, RJ – garantiu acesso","Juliana, MG – comprou agora","Patrícia, BA – finalizou a compra"];
+  function showPurchase(){
+    const el = document.getElementById('purchasePop');
+    el.innerText = buyers[Math.floor(Math.random()*buyers.length)];
+    el.style.display='block';
+    setTimeout(()=>el.style.display='none',4500);
+  }
+  setTimeout(showPurchase,2500);
+  setInterval(showPurchase,11000 + Math.floor(Math.random()*7000));
+
+  // online box
+  function updateOnline(){
+    const el = document.getElementById('onlineBox');
+    const n = Math.floor(Math.random()*(90-10)+10);
+    el.innerText = n + " pessoas visualizando agora";
+    el.style.display='block';
+  }
+  updateOnline();
+  setInterval(updateOnline,7000);
+</script>
 </body>
 </html>
