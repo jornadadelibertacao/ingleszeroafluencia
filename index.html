@@ -4,56 +4,98 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>PAX — O Caminho da Calma Divina</title>
-<meta name="description" content="Programa prático para reduzir ansiedade, recuperar sono e voltar a focar. Oferta: de R$129,90 por R$39,90.">
+<meta name="description" content="Programa prático para reduzir ansiedade, recuperar sono e retomar foco. Oferta: de R$129,90 por R$39,90.">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --bg:#fff7f2;
-    --card:#ffffff;
-    --muted:#6b6b6b;
-    --accent:#d07e2d;
-    --accent-2:#1e6f6f;
-    --cta:#155e5e;
-    --text:#111219;
+    --bg: #fbf8f6;
+    --card: #ffffff;
+    --muted: #6e6b66;
+    --gold: #c89b3a;
+    --teal: #1f6f66;
+    --green-pop: #1e8a59;
+    --text: #13202a;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:linear-gradient(180deg,#fff7f2 0%, #fbf6f2 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial; -webkit-font-smoothing:antialiased}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial; -webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
   .page{max-width:980px;margin:0 auto;padding:18px}
-  /* HERO */
-  .hero{background:linear-gradient(180deg,#fff 0%, #fff7f2 100%);border-radius:14px;padding:18px;box-shadow:0 14px 40px rgba(15,15,15,0.06);overflow:hidden;position:relative}
-  .top-meta{font-size:13px;color:var(--accent-2);font-weight:800;letter-spacing:0.6px}
-  h1{font-size:30px;line-height:1.03;margin:10px 0 6px}
-  p.lead{margin:0;color:#222;font-size:15px;opacity:0.95}
-  .hero-grid{display:flex;gap:12px;align-items:center;flex-direction:column;margin-top:12px}
-  .mock{width:100%;height:220px;border-radius:12px;background:linear-gradient(180deg,#fff,#f6f1eb);display:flex;align-items:center;justify-content:center;color:#a48f7d;font-weight:800;box-shadow:0 10px 30px rgba(30,30,30,0.06)}
-  .cta-row{display:flex;gap:12px;align-items:center;justify-content:space-between;width:100%;margin-top:12px}
-  .price-old{font-size:14px;color:#a0a0a0;text-decoration:line-through;margin-right:8px}
-  .price-now{font-size:20px;color:var(--accent);font-weight:900}
-  .btn{padding:14px 16px;border-radius:12px;font-weight:800;border:0;cursor:pointer;display:inline-block}
-  .btn-primary{background:linear-gradient(90deg,var(--cta),#0f4a4a);color:#fff;box-shadow:0 10px 26px rgba(15,80,80,0.18)}
-  .btn-outline{background:transparent;border:2px solid rgba(30,111,111,0.08);color:var(--text)}
-  section{margin-top:18px}
-  .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 10px 30px rgba(12,12,12,0.04)}
-  .list{padding-left:18px;margin:8px 0}
-  .list li{margin:10px 0;font-weight:700}
-  .grid{display:grid;grid-template-columns:1fr;gap:12px}
-  .feature{display:flex;gap:12px;align-items:flex-start}
-  .dot{width:10px;height:10px;border-radius:999px;background:var(--accent)}
-  .test{display:flex;gap:12px;align-items:center;padding:12px;background:linear-gradient(180deg,#fff,#faf7f3);border-radius:10px}
-  .avatar{width:56px;height:56px;border-radius:999px;background:linear-gradient(180deg,#f0e7df,#f6efe6);display:flex;align-items:center;justify-content:center;font-weight:800;color:#7b5f47}
-  .quote{font-size:14px;color:#333}
-  .guarantee{display:flex;gap:12px;align-items:center;flex-direction:column;padding:12px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbf8f5)}
-  .faq-item{padding:12px;border-radius:8px;background:#fff;margin-bottom:10px}
-  footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+  /* HERO (mobile-first similar ao seu print) */
+  .hero{background:transparent;padding:36px 16px 18px;border-radius:12px}
+  .dove{width:34px;height:34px;display:block;margin:0 auto 8px}
+  h1{font-family:'Playfair Display',serif;font-size:42px;line-height:1.02;margin:6px 0 12px;text-align:center;color:#153241}
+  p.lead{font-size:16px;line-height:1.6;text-align:center;color:var(--muted);max-width:760px;margin:0 auto 20px;padding:0 6px}
+  .cta-large{display:block;margin:18px auto 6px;background:var(--gold);color:#fff;padding:18px 22px;border-radius:40px;font-weight:700;font-size:16px;max-width:720px;text-align:center;box-shadow:0 18px 40px rgba(200,155,58,0.14)}
+  .price-old{display:block;text-align:center;color:#a8a8a8;text-decoration:line-through;margin-top:6px;font-size:14px}
+  .section{padding:18px;margin-top:10px}
+  .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 12px 30px rgba(15,15,15,0.05)}
+  h2{font-family:'Playfair Display',serif;font-size:20px;margin:0 0 12px;text-align:center;color:#184047}
+  ul.clean{padding-left:18px;margin:8px 0}
+  ul.clean li{margin:10px 0; font-weight:700;color:#2b3d3f}
+  .features{display:flex;flex-direction:column;gap:12px}
+  .feature-row{display:flex;gap:10px;align-items:flex-start}
+  .dot{width:9px;height:9px;border-radius:999px;background:var(--gold);margin-top:8px}
+
+  /* testimonials style like your Canva */
+  .test-list{display:flex;flex-direction:column;gap:14px;margin-top:12px}
+  .test{background:#fff;padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(12,12,12,0.04);font-size:15px}
+  .test .txt{font-style:italic;color:#3b4446;margin-bottom:10px}
+  .test .who{color:var(--gold);font-weight:800}
+
+  .cta-block{display:flex;gap:12px;flex-direction:column;align-items:center;margin-top:14px}
+
+  .small{font-size:13px;color:var(--muted);text-align:center}
+
   /* popouts */
-  .pop-purchase{position:fixed;left:16px;bottom:18px;background:#fff;padding:12px 14px;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,0.12);font-weight:700;z-index:880;display:none;max-width:300px}
-  .pop-online{position:fixed;right:16px;top:18px;background:linear-gradient(90deg,#1f8a59,#12805a);color:#fff;padding:10px 14px;border-radius:12px;box-shadow:0 14px 40px rgba(11,70,65,0.18);font-weight:800;z-index:890;display:none;align-items:center;gap:8px}
-  .pop-online .dot-online{font-size:18px;margin-right:6px}
-  /* responsive */
+  /* purchase popout: bottom-left, green background, small width, does not cover center CTAs */
+  .pop-purchase{
+    position:fixed;
+    left:14px;
+    bottom:96px; /* lifted so it doesn't overlap large CTA at bottom */
+    background:var(--green-pop);
+    color:#fff;
+    padding:10px 12px;
+    border-radius:10px;
+    box-shadow:0 16px 40px rgba(0,0,0,0.18);
+    font-weight:700;
+    z-index:880;
+    display:none;
+    max-width:280px;
+    font-size:13px;
+    line-height:1.2;
+  }
+
+  /* online popout: top-right with green dot emoji, higher z-index so it overlays purchase if necessary */
+  .pop-online{
+    position:fixed;
+    right:14px;
+    top:18px;
+    background:linear-gradient(90deg,#168a52,#127a4b);
+    color:#fff;
+    padding:10px 14px;
+    border-radius:10px;
+    box-shadow:0 16px 40px rgba(0,0,0,0.18);
+    font-weight:800;
+    z-index:890;
+    display:none;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+  }
+  .dot-online{font-size:18px;margin-right:6px}
+
+  /* footer small bar like your print (but avoid overlay) */
+  footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px;padding-bottom:36px}
+
+  /* responsive tweaks */
   @media(min-width:820px){
-    .hero-grid{flex-direction:row;align-items:center}
-    .mock{width:460px;height:260px}
-    .grid{grid-template-columns:1fr 1fr}
+    h1{font-size:56px}
+    .hero{padding:48px}
+    .pop-purchase{left:24px;bottom:120px}
+    .pop-online{right:24px;top:24px}
   }
 </style>
 </head>
@@ -62,213 +104,171 @@
 
   <!-- HERO -->
   <header class="hero" role="banner">
-    <div class="top-meta">PAX — oferta especial (promo limitada)</div>
-    <h1>A ansiedade te paralisa? Em 7 dias técnicas práticas para reduzir crises e recuperar controle.</h1>
-    <p class="lead">Programa direto, aplicado e testado — conteúdo em vídeo, áudios e roteiros práticos. Acesso imediato.</p>
+    <!-- small dove icon like your screenshot (optional) -->
+    <div style="text-align:center;margin-bottom:8px"><img src="" alt="" class="dove" aria-hidden="true"></div>
 
-    <div class="hero-grid" style="margin-top:14px">
-      <div style="flex:1">
-        <div class="mock" aria-hidden="true">COLOQUE AQUI SUA IMAGEM 1080x1080 OU VÍDEO (substitua)</div>
-      </div>
+    <h1>Calma não é sorte. É escolha diária.</h1>
+    <p class="lead">O método simples e guiado para reduzir ansiedade, controlar a mente e recuperar sua paz interior — sem enrolação, aplicável já no primeiro dia.</p>
 
-      <div style="width:320px;min-width:260px">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <div style="display:flex;align-items:center">
-              <div class="price-old">De R$ 129,90</div>
-              <div class="price-now">Por R$ 39,90</div>
-            </div>
-            <div style="font-size:13px;color:var(--muted);margin-top:6px">Pagamento seguro • Acesso imediato</div>
-          </div>
-        </div>
-
-        <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
-          <a class="btn btn-primary" href="https://pay.kiwify.com.br/r3bathm" target="_blank">ACESSAR AGORA — R$ 39,90</a>
-          <a class="btn btn-outline" href="#o-que-voce-recebe">VER CONTEÚDO</a>
-        </div>
-      </div>
+    <a class="cta-large" href="https://pay.kiwify.com.br/r3bathm" target="_blank">QUERO ACESSO AO PAX POR R$39,90</a>
+    <div style="text-align:center;margin-top:6px">
+      <span class="price-old">De R$129,90</span>
     </div>
   </header>
 
   <!-- O QUE RECEBE -->
-  <section id="o-que-voce-recebe">
+  <section class="section">
     <div class="card">
-      <h2>O que você recebe — entregas práticas (5–7)</h2>
-      <ul class="list">
-        <li><strong>Módulo 1 — SOS:</strong> protocolo de 3 passos para reduzir crise em minutos (áudio + guia rápido).</li>
-        <li><strong>Módulo 2 — Rotina diária:</strong> 7 rotinas de 5–10 minutos para reduzir ansiedade acumulada.</li>
-        <li><strong>Módulo 3 — Sono restaurador:</strong> roteiro de 7 noites para reset do sono.</li>
-        <li><strong>Módulo 4 — Foco & ação:</strong> scripts prontos para retomar produtividade sem travar.</li>
-        <li><strong>Bônus:</strong> 3 áudios práticos + checklist “Transforme seu dia”.</li>
+      <h2>O que está incluído no programa</h2>
+      <ul class="clean">
+        <li>Guia SOS: 3 passos práticos para reduzir crise em minutos (áudio + guia rápido)</li>
+        <li>Rotina de 7 dias para reset do sono</li>
+        <li>Roteiros de foco e ação para o dia a dia</li>
+        <li>Áudios curtos (3–7 min) para uso imediato</li>
+        <li>Checklist “Transforme seu dia” — 5 passos práticos</li>
       </ul>
-      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn btn-primary" href="https://pay.kiwify.com.br/r3bathm" target="_blank">GARANTIR ACESSO — R$ 39,90</a>
-        <a class="btn btn-outline" href="#faq">PERGUNTAS FREQUENTES</a>
-      </div>
-    </div>
-  </section>
 
-  <!-- PROBLEMAS / PARA QUEM -->
-  <section style="margin-top:16px">
-    <div class="grid">
-      <div class="card">
-        <h3>Isso é pra você se...</h3>
-        <div style="margin-top:8px">
-          <div class="feature"><div class="dot"></div><div style="flex:1">Acorda já tenso(a) e passa o dia no limite;</div></div>
-          <div class="feature" style="margin-top:8px"><div class="dot"></div><div style="flex:1">Pensamentos que não param e travam decisões simples;</div></div>
-          <div class="feature" style="margin-top:8px"><div class="dot"></div><div style="flex:1">Tem sono ruim por conta da mente acelerada.</div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Como o PAX atua</h3>
-        <div style="margin-top:8px">
-          <div class="feature"><div class="dot"></div><div style="flex:1"><strong>Intervenção imediata:</strong> técnicas aplicáveis quando você mais precisa.</div></div>
-          <div class="feature" style="margin-top:8px"><div class="dot"></div><div style="flex:1"><strong>Acumulação prática:</strong> rotinas curtas que geram mudança em semanas.</div></div>
-          <div class="feature" style="margin-top:8px"><div class="dot"></div><div style="flex:1"><strong>Sono & foco:</strong> protocolos para recuperar energia e produtividade.</div></div>
-        </div>
+      <div class="cta-block">
+        <a class="cta-large" href="https://pay.kiwify.com.br/r3bathm" target="_blank">GARANTIR ACESSO — R$39,90</a>
+        <div class="small">Acesso imediato • Pagamento seguro</div>
       </div>
     </div>
   </section>
 
   <!-- DEPOIMENTOS -->
-  <section style="margin-top:16px">
-    <h2>Depoimentos reais</h2>
-    <div style="margin-top:12px;display:flex;flex-direction:column;gap:12px">
-      <div class="test"><div class="avatar">M</div><div><div class="quote">"Reduzi crises noturnas em poucos dias. Simples e direto."</div><div style="font-size:13px;color:var(--muted);margin-top:6px">Mariana Silva, 38 — São Paulo</div></div></div>
-      <div class="test"><div class="avatar">P</div><div><div class="quote">"Melhorei sono e foco. Uso os áudios todos os dias."</div><div style="font-size:13px;color:var(--muted);margin-top:6px">Patrícia Oliveira, 42 — Rio de Janeiro</div></div></div>
-      <div class="test"><div class="avatar">R</div><div><div class="quote">"Protocolo do sono mudou minhas noites. Recomendo."</div><div style="font-size:13px;color:var(--muted);margin-top:6px">Renata Costa, 35 — Belo Horizonte</div></div></div>
-      <div class="test"><div class="avatar">A</div><div><div class="quote">"Ferramentas práticas para o trabalho — resultados reais."</div><div style="font-size:13px;color:var(--muted);margin-top:6px">Amanda Pereira, 39 — Curitiba</div></div></div>
-      <div class="test"><div class="avatar">L</div><div><div class="quote">"Menos ansiedade, mais foco. Apliquei em 1 semana."</div><div style="font-size:13px;color:var(--muted);margin-top:6px">Lucas Mendes, 41 — Fortaleza</div></div></div>
-      <div class="test"><div class="avatar">G</div><div><div class="quote">"Roteiros práticos que funcionam no dia a dia."</div><div style="font-size:13px;color:var(--muted);margin-top:6px">Gabriela Ramos, 36 — Salvador</div></div></div>
-    </div>
+  <section class="section">
+    <h2 style="text-align:center">O que pessoas dizem após começar o PAX</h2>
 
-    <div style="margin-top:10px;font-size:14px;color:var(--muted)">
-      <strong>Veja mais depoimentos no checkout</strong> — <a href="https://pay.kiwify.com.br/r3bathm" target="_blank" style="color:var(--accent-2);font-weight:800">Clique aqui para ver avaliações reais</a>
-    </div>
-  </section>
+    <div class="test-list">
+      <div class="test">
+        <div class="txt">"Nunca imaginei que algo tão simples fosse tão poderoso. Minha mente está mais leve."</div>
+        <div class="who">— Julia Santos, São Paulo</div>
+      </div>
 
-  <!-- BONUS + GARANTIA -->
-  <section style="margin-top:16px">
-    <div class="card">
-      <h3>Bônus & Garantia</h3>
-      <p style="margin:6px 0;color:var(--muted)">Bônus: checklist "Transforme seu dia" + 3 áudios práticos. Garantia de 7 dias: teste e peça reembolso se não funcionar — sem perguntas.</p>
-      <div style="margin-top:12px">
-        <a class="btn btn-primary" href="https://pay.kiwify.com.br/r3bathm" target="_blank">QUERO AGORA — R$ 39,90</a>
+      <div class="test">
+        <div class="txt">"Finalmente durmo bem e acordo sem aquela ansiedade que me esmagava."</div>
+        <div class="who">— Marcos Ferreira, Rio de Janeiro</div>
+      </div>
+
+      <div class="test">
+        <div class="txt">"Mudou minha forma de lidar com pressão no trabalho. Resultado prático em poucos dias."</div>
+        <div class="who">— Carla Oliveira, Curitiba</div>
       </div>
     </div>
-  </section>
 
-  <!-- FAQ -->
-  <section id="faq" style="margin-top:16px">
-    <h3>Perguntas frequentes</h3>
-    <div style="margin-top:10px">
-      <div class="faq-item"><strong>Quanto tempo por dia?</strong><div style="font-size:13px;color:var(--muted);margin-top:6px">5–10 minutos nas rotinas; áudios de 3–7 minutos.</div></div>
-      <div class="faq-item"><strong>É terapia?</strong><div style="font-size:13px;color:var(--muted);margin-top:6px">Não substitui terapia. É um programa prático para reduzir sintomas e recuperar controle.</div></div>
-      <div class="faq-item"><strong>Como recebo?</strong><div style="font-size:13px;color:var(--muted);margin-top:6px">Acesso imediato via área do aluno, vídeos, áudios e PDFs.</div></div>
+    <div style="margin-top:12px;text-align:center;font-size:14px;color:var(--muted)">
+      <strong>Veja mais depoimentos no checkout</strong> — <a href="https://pay.kiwify.com.br/r3bathm" target="_blank" style="color:var(--teal);font-weight:800">Clique aqui para ver avaliações</a>
     </div>
   </section>
 
-  <footer style="margin-top:20px;text-align:center;color:var(--muted);font-size:13px">
-    © PAX — Política de privacidade e termos aplicáveis
+  <!-- GARANTIA -->
+  <section class="section">
+    <div class="card" style="text-align:center">
+      <h2>Garantia incondicional de 7 dias</h2>
+      <p class="small" style="margin-top:8px">Teste por 7 dias. Se o PAX não transformar sua rotina mental, peça reembolso — sem perguntas.</p>
+    </div>
+  </section>
+
+  <footer>
+    © PAX — Política de privacidade • Suporte: suporte.pax30@gmail.com
   </footer>
 </div>
 
 <!-- POPOUTS -->
+<!-- Purchase popout (green background, small, fixed phrase appended) -->
 <div id="purchasePop" class="pop-purchase" role="status" aria-live="polite"></div>
 
+<!-- Online popout (top-right) with green dot emoji -->
 <div id="onlinePop" class="pop-online" role="status" aria-live="polite">
   <div class="dot-online">🟢</div>
   <div id="onlineText">12 pessoas visualizando agora</div>
 </div>
 
 <script>
-  // === Purchase popout: 50 names (25 women, 25 men) ===
+  // === BUYERS: 50 names (25 women + 25 men) - each entry will show: "<name> — Acabou de comprar o PAX - O Caminho da Calma Divina" ===
   const buyers = [
-    // 25 mulheres
-    "Ana Beatriz Silva, SP, 34 anos — acabou de comprar",
-    "Mariana Alves, RJ, 38 anos — comprou agora",
-    "Patrícia Oliveira, RJ, 42 anos — finalizou a compra",
-    "Renata Costa, MG, 35 anos — adquiriu o PAX",
-    "Amanda Pereira, PR, 39 anos — comprou há segundos",
-    "Gabriela Ramos, BA, 36 anos — garantiu acesso",
-    "Mariana Souza, SP, 33 anos — acaba de pagar",
-    "Fernanda Lima, CE, 40 anos — finalizou compra",
-    "Juliana Rocha, RS, 37 anos — comprou agora",
-    "Camila Ferreira, PE, 41 anos — garantia adquirida",
-    "Bianca Martins, SP, 45 anos — concluiu compra",
-    "Larissa Almeida, DF, 32 anos — acesso liberado",
-    "Tatiana Gomes, RJ, 43 anos — terminou compra",
-    "Patrícia Nascimento, BA, 38 anos — adquiriu agora",
-    "Sofia Cardoso, MG, 36 anos — comprou há instantes",
-    "Carla Menezes, PR, 44 anos — finalizou pedido",
-    "Adriana Pinto, SP, 47 anos — compra concluída",
-    "Isabela Duarte, RJ, 31 anos — pagou agora",
-    "Cláudia Moraes, MG, 50 anos — garantiu acesso",
-    "Priscila Teixeira, PE, 37 anos — finalizou",
-    "Renata Barros, CE, 34 anos — acesso liberado",
-    "Aline Castro, BA, 39 anos — comprou agora",
-    "Eliana Ribeiro, RS, 41 anos — compra efetuada",
-    "Mirella Santana, SP, 35 anos — finalizou compra",
-    "Natália Lopes, RJ, 33 anos — adquiriu agora",
-    // 25 homens
-    "Lucas Mendes, CE, 41 anos — acabou de comprar",
-    "Bruno Silva, SP, 38 anos — comprou agora",
-    "Roberto Santos, RJ, 45 anos — finalizou a compra",
-    "Fernando Costa, MG, 39 anos — adquiriu o PAX",
-    "Gustavo Pereira, PR, 36 anos — comprou há segundos",
-    "Mateus Oliveira, BA, 34 anos — garantiu acesso",
-    "Ricardo Almeida, SP, 43 anos — acaba de pagar",
-    "Paulo Ferreira, RJ, 47 anos — finalizou compra",
-    "Rafael Gomes, RS, 35 anos — comprou agora",
-    "Marcelo Nascimento, PE, 40 anos — garantia adquirida",
-    "Thiago Rocha, SP, 37 anos — concluiu compra",
-    "Daniel Martins, DF, 42 anos — acesso liberado",
-    "André Araújo, RJ, 44 anos — terminou compra",
-    "Eduardo Carvalho, MG, 48 anos — adquiriu agora",
-    "Rodrigo Ribeiro, BA, 39 anos — comprou há instantes",
-    "Vitor Lima, CE, 33 anos — finalizou pedido",
-    "Felipe Cardoso, PR, 36 anos — compra concluída",
-    "Fábio Souza, SP, 46 anos — pagou agora",
-    "Alexandre Pinto, RJ, 38 anos — garantia adquirida",
-    "Diego Santana, MG, 35 anos — compra efetuada",
-    "Marcos Araújo, RS, 50 anos — finalizou compra",
-    "Leonardo Teixeira, PE, 41 anos — adquiriu agora",
-    "Hugo Mendes, SP, 37 anos — comprou agora",
-    "Igor Barbosa, RJ, 34 anos — acesso liberado",
-    "Guilherme Rocha, MG, 36 anos — finalizou compra"
+    "Ana Beatriz Silva, SP, 34 anos",
+    "Mariana Alves, RJ, 38 anos",
+    "Patrícia Oliveira, RJ, 42 anos",
+    "Renata Costa, MG, 35 anos",
+    "Amanda Pereira, PR, 39 anos",
+    "Gabriela Ramos, BA, 36 anos",
+    "Mariana Souza, SP, 33 anos",
+    "Fernanda Lima, CE, 40 anos",
+    "Juliana Rocha, RS, 37 anos",
+    "Camila Ferreira, PE, 41 anos",
+    "Bianca Martins, SP, 45 anos",
+    "Larissa Almeida, DF, 32 anos",
+    "Tatiana Gomes, RJ, 43 anos",
+    "Patrícia Nascimento, BA, 38 anos",
+    "Sofia Cardoso, MG, 36 anos",
+    "Carla Menezes, PR, 44 anos",
+    "Adriana Pinto, SP, 47 anos",
+    "Isabela Duarte, RJ, 31 anos",
+    "Cláudia Moraes, MG, 50 anos",
+    "Priscila Teixeira, PE, 37 anos",
+    "Renata Barros, CE, 34 anos",
+    "Aline Castro, BA, 39 anos",
+    "Eliana Ribeiro, RS, 41 anos",
+    "Mirella Santana, SP, 35 anos",
+    "Natália Lopes, RJ, 33 anos",
+    "Lucas Mendes, CE, 41 anos",
+    "Bruno Silva, SP, 38 anos",
+    "Roberto Santos, RJ, 45 anos",
+    "Fernando Costa, MG, 39 anos",
+    "Gustavo Pereira, PR, 36 anos",
+    "Mateus Oliveira, BA, 34 anos",
+    "Ricardo Almeida, SP, 43 anos",
+    "Paulo Ferreira, RJ, 47 anos",
+    "Rafael Gomes, RS, 35 anos",
+    "Marcelo Nascimento, PE, 40 anos",
+    "Thiago Rocha, SP, 37 anos",
+    "Daniel Martins, DF, 42 anos",
+    "André Araújo, RJ, 44 anos",
+    "Eduardo Carvalho, MG, 48 anos",
+    "Rodrigo Ribeiro, BA, 39 anos",
+    "Vitor Lima, CE, 33 anos",
+    "Felipe Cardoso, PR, 36 anos",
+    "Fábio Souza, SP, 46 anos",
+    "Alexandre Pinto, RJ, 38 anos",
+    "Diego Santana, MG, 35 anos",
+    "Marcos Araújo, RS, 50 anos",
+    "Leonardo Teixeira, PE, 41 anos",
+    "Hugo Mendes, SP, 37 anos",
+    "Igor Barbosa, RJ, 34 anos",
+    "Guilherme Rocha, MG, 36 anos"
   ];
 
   const purchaseEl = document.getElementById('purchasePop');
   const onlineEl = document.getElementById('onlinePop');
   const onlineText = document.getElementById('onlineText');
 
-  // Show purchase popout every 13 seconds
+  // SHOW purchase every 13s
   let buyIndex = 0;
   function showPurchase(){
-    const text = buyers[buyIndex % buyers.length];
-    purchaseEl.innerText = text;
+    const name = buyers[buyIndex % buyers.length];
+    // fixed phrase requirement
+    purchaseEl.innerText = `${name} — Acabou de comprar o PAX - O Caminho da Calma Divina`;
     purchaseEl.style.display = 'block';
     // hide after 5s
     setTimeout(()=>{ purchaseEl.style.display = 'none'; }, 5000);
     buyIndex++;
   }
 
-  // initial delay then interval 13s
-  setTimeout(showPurchase, 2200);
+  setTimeout(showPurchase, 2000);
   setInterval(showPurchase, 13000);
 
-  // online popout top-right: update count realistically
+  // online popout top-right: realistic count, persistent
   function showOnline(){
     const n = Math.floor(Math.random()*(120-8)+8);
-    onlineText.innerText = n + " pessoas visualizando agora";
+    onlineText.innerText = `${n} pessoas visualizando agora`;
     onlineEl.style.display = 'flex';
   }
   setTimeout(showOnline, 800);
   setInterval(showOnline, 7000);
 
-  // Accessibility: ensure CTAs keyboard-focusable
-  document.querySelectorAll('a.btn').forEach(btn=> btn.setAttribute('tabindex','0'));
+  // accessibility: focusable CTAs
+  document.querySelectorAll('a').forEach(a => a.setAttribute('tabindex','0'));
 </script>
 </body>
 </html>
