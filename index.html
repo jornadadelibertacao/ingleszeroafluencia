@@ -404,11 +404,141 @@
   'use strict';
 
   function init(){
-    // nomes de exemplo
+    // nomes corrigidos
     const buyers = [
       "Ana Beatriz Silva, SP, 34 anos","Mariana Alves, RJ, 38 anos","Patrícia Oliveira, RJ, 42 anos",
       "Renata Costa, MG, 35 anos","Amanda Pereira, PR, 39 anos","Gabriela Ramos, BA, 36 anos",
       "Mariana Souza, SP, 33 anos","Fernanda Lima, CE, 40 anos","Juliana Rocha, RS, 37 anos",
       "Camila Ferreira, PE, 41 anos","Bianca Martins, SP, 45 anos","Larissa Almeida, DF, 32 anos",
       "Tatiana Gomes, RJ, 43 anos","Patrícia Nascimento, BA, 38 anos","Sofia Cardoso, MG, 36 anos",
-      "Carla Menezes, PR, 44 anos","Adriana Pinto, SP, 47 anos","Isabela Duarte, RJ, 
+      "Carla Menezes, PR, 44 anos","Adriana Pinto, SP, 47 anos","Isabela Duarte, RJ, 31 anos",
+      "Cláudia Moraes, MG, 50 anos","Priscila Teixeira, PE, 37 anos","Renata Barros, CE, 34 anos",
+      "Aline Castro, BA, 39 anos","Eliana Ribeiro, RS, 41 anos","Mirella Santana, SP, 35 anos",
+      "Natália Lopes, RJ, 33 anos","Lucas Mendes, CE, 41 anos","Bruno Silva, SP, 38 anos",
+      "Roberto Santos, RJ, 45 anos","Fernando Costa, MG, 39 anos","Gustavo Pereira, PR, 36 anos",
+      "Mateus Oliveira, BA, 34 anos","Ricardo Almeida, SP, 43 anos","Paulo Ferreira, RJ, 47 anos",
+      "Rafael Gomes, RS, 35 anos","Marcelo Nascimento, PE, 40 anos","Thiago Rocha, SP, 37 anos",
+      "Daniel Martins, DF, 42 anos","André Araújo, RJ, 44 anos","Eduardo Carvalho, MG, 48 anos",
+      "Rodrigo Ribeiro, BA, 39 anos","Vitor Lima, CE, 33 anos","Felipe Cardoso, PR, 36 anos",
+      "Fábio Souza, SP, 46 anos","Alexandre Pinto, RJ, 38 anos","Diego Santana, MG, 35 anos",
+      "Marcos Araújo, RS, 50 anos","Leonardo Teixeira, PE, 41 anos","Hugo Mendes, SP, 37 anos",
+      "Igor Barbosa, RJ, 34 anos","Guilherme Rocha, MG, 36 anos"
+    ];
+
+    const PURCHASE_FIRST_DELAY = 2200;
+    const PURCHASE_INTERVAL = 13000;
+    const ONLINE_FIRST_DELAY = 800;
+    const ONLINE_INTERVAL = 7000;
+    const POP_VISIBLE_MS = 5000;
+
+    function ensureElements(){
+      let p = document.getElementById('purchasePop');
+      let o = document.getElementById('onlinePop');
+
+      if(!p){
+        p = document.createElement('div');
+        p.id = 'purchasePop';
+        p.className = 'pop-purchase';
+        p.setAttribute('role','status');
+        p.setAttribute('aria-live','polite');
+        document.body.appendChild(p);
+        console.warn('[popouts] purchasePop criado');
+      }
+      if(!o){
+        o = document.createElement('div');
+        o.id = 'onlinePop';
+        o.className = 'pop-online';
+        o.setAttribute('role','status');
+        o.setAttribute('aria-live','polite');
+        o.innerHTML = '<div class="dot-online">🟢</div><div id="onlineText">0 pessoas visualizando agora</div>';
+        document.body.appendChild(o);
+        console.warn('[popouts] onlinePop criado');
+      }
+      return {purchaseEl:p, onlineEl:o};
+    }
+
+    function forceVisible(el){
+      try{
+        el.style.setProperty('display','flex','important');
+        el.style.setProperty('visibility','visible','important');
+        el.style.setProperty('z-index','2147483647','important');
+      }catch(e){}
+    }
+
+    function revealPop(el, text, duration = POP_VISIBLE_MS){
+      if(!el) return;
+      try{
+        el.textContent = text;
+        forceVisible(el);
+        el.classList.add('show');
+        setTimeout(()=>{ el.classList.remove('show'); }, duration);
+      }catch(e){
+        console.warn('[popouts] revealPop erro', e);
+      }
+    }
+
+    const els = ensureElements();
+    const purchaseEl = els.purchaseEl;
+    const onlineEl = els.onlineEl;
+    const onlineTextEl = document.getElementById('onlineText') || onlineEl;
+
+    forceVisible(purchaseEl);
+    forceVisible(onlineEl);
+
+    let buyIndex = 0;
+    function showPurchase(){
+      try{
+        const name = buyers[buyIndex % buyers.length] || 'Alguém';
+        revealPop(purchaseEl, `${name} — Acabou de comprar o PAX — Acesso imediato.`, POP_VISIBLE_MS);
+        buyIndex++;
+      }catch(e){
+        console.warn('[popouts] showPurchase erro', e);
+      }
+    }
+
+    function showOnline(){
+      try{
+        const n = Math.floor(Math.random()*(140-8)+8);
+        if(onlineTextEl && onlineTextEl !== onlineEl) onlineTextEl.textContent = `${n} pessoas visualizando agora`;
+        else onlineEl.textContent = `${n} pessoas visualizando agora`;
+        forceVisible(onlineEl);
+        onlineEl.classList.add('show');
+        setTimeout(()=> onlineEl.classList.remove('show'), 4800);
+      }catch(e){
+        console.warn('[popouts] showOnline erro', e);
+      }
+    }
+
+    // schedule
+    try{
+      setTimeout(showPurchase, PURCHASE_FIRST_DELAY);
+      setInterval(showPurchase, PURCHASE_INTERVAL);
+      setTimeout(showOnline, ONLINE_FIRST_DELAY);
+      setInterval(showOnline, ONLINE_INTERVAL);
+      console.log('[popouts] iniciado');
+    }catch(e){
+      console.error('[popouts] erro ao agendar timers', e);
+    }
+
+    // Test API
+    window.__PAX_POPOUTS = {
+      revealPurchase: (txt, ms) => revealPop(purchaseEl, txt || 'Teste compra', ms || POP_VISIBLE_MS),
+      revealOnline: (txt, ms) => { if(onlineTextEl && onlineTextEl !== onlineEl) onlineTextEl.textContent = txt; revealPop(onlineEl, txt || '10 pessoas visualizando', ms || 4800); },
+      ensureVisible: () => { forceVisible(purchaseEl); forceVisible(onlineEl); }
+    };
+  } // init
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  setTimeout(() => {
+    if(!document.getElementById('purchasePop') || !document.getElementById('onlinePop')){
+      try { init(); }catch(e){}
+    }
+  }, 3000);
+
+})();
+</script>
