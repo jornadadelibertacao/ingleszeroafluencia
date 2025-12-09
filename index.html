@@ -404,7 +404,6 @@
   'use strict';
 
   function init(){
-    // nomes corrigidos
     const buyers = [
       "Ana Beatriz Silva, SP, 34 anos","Mariana Alves, RJ, 38 anos","Patrícia Oliveira, RJ, 42 anos",
       "Renata Costa, MG, 35 anos","Amanda Pereira, PR, 39 anos","Gabriela Ramos, BA, 36 anos",
@@ -425,120 +424,46 @@
       "Igor Barbosa, RJ, 34 anos","Guilherme Rocha, MG, 36 anos"
     ];
 
-    const PURCHASE_FIRST_DELAY = 2200;
-    const PURCHASE_INTERVAL = 13000;
-    const ONLINE_FIRST_DELAY = 800;
-    const ONLINE_INTERVAL = 7000;
-    const POP_VISIBLE_MS = 5000;
-
-    function ensureElements(){
-      let p = document.getElementById('purchasePop');
-      let o = document.getElementById('onlinePop');
-
-      if(!p){
-        p = document.createElement('div');
-        p.id = 'purchasePop';
-        p.className = 'pop-purchase';
-        p.setAttribute('role','status');
-        p.setAttribute('aria-live','polite');
-        document.body.appendChild(p);
-        console.warn('[popouts] purchasePop criado');
-      }
-      if(!o){
-        o = document.createElement('div');
-        o.id = 'onlinePop';
-        o.className = 'pop-online';
-        o.setAttribute('role','status');
-        o.setAttribute('aria-live','polite');
-        o.innerHTML = '<div class="dot-online">🟢</div><div id="onlineText">0 pessoas visualizando agora</div>';
-        document.body.appendChild(o);
-        console.warn('[popouts] onlinePop criado');
-      }
-      return {purchaseEl:p, onlineEl:o};
+    const purchaseEl = document.getElementById('purchasePop');
+    if(!purchaseEl){
+      console.warn("Elemento purchasePop não encontrado.");
+      return;
     }
 
     function forceVisible(el){
-      try{
-        el.style.setProperty('display','flex','important');
-        el.style.setProperty('visibility','visible','important');
-        el.style.setProperty('z-index','2147483647','important');
-      }catch(e){}
+      el.style.setProperty('display','flex','important');
+      el.style.setProperty('opacity','1','important');
+      el.style.setProperty('visibility','visible','important');
+      el.style.setProperty('z-index','2147483647','important');
     }
 
-    function revealPop(el, text, duration = POP_VISIBLE_MS){
-      if(!el) return;
-      try{
-        el.textContent = text;
-        forceVisible(el);
-        el.classList.add('show');
-        setTimeout(()=>{ el.classList.remove('show'); }, duration);
-      }catch(e){
-        console.warn('[popouts] revealPop erro', e);
-      }
+    function showPurchase(text, duration = 5000){
+      purchaseEl.textContent = text;
+      forceVisible(purchaseEl);
+      purchaseEl.classList.add('show');
+      setTimeout(()=> purchaseEl.classList.remove('show'), duration);
     }
 
-    const els = ensureElements();
-    const purchaseEl = els.purchaseEl;
-    const onlineEl = els.onlineEl;
-    const onlineTextEl = document.getElementById('onlineText') || onlineEl;
+    let index = 0;
 
-    forceVisible(purchaseEl);
-    forceVisible(onlineEl);
-
-    let buyIndex = 0;
-    function showPurchase(){
-      try{
-        const name = buyers[buyIndex % buyers.length] || 'Alguém';
-        revealPop(purchaseEl, `${name} — Acabou de comprar o PAX — Acesso imediato.`, POP_VISIBLE_MS);
-        buyIndex++;
-      }catch(e){
-        console.warn('[popouts] showPurchase erro', e);
-      }
+    function triggerPurchase(){
+      const name = buyers[index % buyers.length];
+      index++;
+      showPurchase(`${name} — Acabou de comprar o PAX.`);
     }
 
-    function showOnline(){
-      try{
-        const n = Math.floor(Math.random()*(140-8)+8);
-        if(onlineTextEl && onlineTextEl !== onlineEl) onlineTextEl.textContent = `${n} pessoas visualizando agora`;
-        else onlineEl.textContent = `${n} pessoas visualizando agora`;
-        forceVisible(onlineEl);
-        onlineEl.classList.add('show');
-        setTimeout(()=> onlineEl.classList.remove('show'), 4800);
-      }catch(e){
-        console.warn('[popouts] showOnline erro', e);
-      }
-    }
+    // PRIMEIRO POP DEPOIS DE 10s
+    setTimeout(triggerPurchase, 10000);
 
-    // schedule
-    try{
-      setTimeout(showPurchase, PURCHASE_FIRST_DELAY);
-      setInterval(showPurchase, PURCHASE_INTERVAL);
-      setTimeout(showOnline, ONLINE_FIRST_DELAY);
-      setInterval(showOnline, ONLINE_INTERVAL);
-      console.log('[popouts] iniciado');
-    }catch(e){
-      console.error('[popouts] erro ao agendar timers', e);
-    }
-
-    // Test API
-    window.__PAX_POPOUTS = {
-      revealPurchase: (txt, ms) => revealPop(purchaseEl, txt || 'Teste compra', ms || POP_VISIBLE_MS),
-      revealOnline: (txt, ms) => { if(onlineTextEl && onlineTextEl !== onlineEl) onlineTextEl.textContent = txt; revealPop(onlineEl, txt || '10 pessoas visualizando', ms || 4800); },
-      ensureVisible: () => { forceVisible(purchaseEl); forceVisible(onlineEl); }
-    };
-  } // init
+    // DEPOIS UM A CADA 45s
+    setInterval(triggerPurchase, 45000);
+  }
 
   if(document.readyState === 'loading'){
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }
-
-  setTimeout(() => {
-    if(!document.getElementById('purchasePop') || !document.getElementById('onlinePop')){
-      try { init(); }catch(e){}
-    }
-  }, 3000);
 
 })();
 </script>
