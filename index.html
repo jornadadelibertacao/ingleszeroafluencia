@@ -6,6 +6,29 @@
 <title>PAX — O Caminho da Calma Divina | Reduza ansiedade com PDFs práticos</title>
 <meta name="description" content="PAX: programa prático em PDF para reduzir ansiedade, recuperar sono e retomar foco. Oferta: De R$129,90 por R$39,90. Acesso imediato.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code (instalado) -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  try{
+    fbq('init', '2004570006755557'); // seu Pixel ID
+    fbq('track', 'PageView');
+  }catch(e){
+    console.warn('Pixel init failed', e);
+  }
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2004570006755557&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <style>
   /* --- Design: profissional, mobile-first, quente/premium --- */
   :root{
@@ -372,21 +395,39 @@
   // Focusable CTAs for accessibility
   document.querySelectorAll('a').forEach(a => a.setAttribute('tabindex','0'));
 
-  // OPTIONAL: Meta Pixel snippet (add your ID if you want tracking)
-  // <!-- Insert your Meta Pixel here: -->
-  // !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  // n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  // n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  // t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-  // document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  // fbq('init', 'YOUR_PIXEL_ID_HERE');
-  // fbq('track', 'PageView');
+  // Track CTA clicks (InitiateCheckout) — robust and safe
+  (function(){
+    var cta = document.getElementById('primary-cta');
+    if(cta){
+      cta.addEventListener('click', function(){
+        try{
+          if(typeof fbq === 'function'){
+            fbq('track', 'InitiateCheckout');
+          }
+        }catch(e){
+          console.warn('fbq track error', e);
+        }
+      });
+    }
+  })();
 
-  // Track CTA clicks (simple)
-  document.getElementById('primary-cta').addEventListener('click', function(){
-    // If you add fbq or analytics, trigger event here
-    // fbq('track', 'InitiateCheckout');
-  });
+  /* 
+    Example Purchase event — place this in your checkout/thank-you page (Kiwify)
+    and replace ORDER_ID and VALUE dynamically (Kiwify permite injetar variáveis).
+  
+  <script>
+    try{
+      fbq('track', 'Purchase', {
+        value: 39.90,
+        currency: 'BRL',
+        content_name: 'PAX - O Caminho da Calma Divina',
+        content_ids: ['PAX-001'],
+        order_id: 'ORDER_ID_HERE'
+      });
+    }catch(e){}
+  </script>
+  */
+
 </script>
 </body>
 </html>
