@@ -15,7 +15,7 @@
   if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
   n.queue=[];t=b.createElement(e);t.async=!0;
   t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t)}(window, document,'script',
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
   try{
     fbq('init', '2004570006755557'); // seu Pixel ID
@@ -157,8 +157,8 @@
   .guarantee{padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbf8f5);text-align:center}
   /* footer */
   footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px;padding-bottom:36px}
-  /* popouts — agora com transição e class .show */
-  .pop-purchase, .pop-online{
+  /* popouts — compra */
+  .pop-purchase{
     position:fixed;
     display:flex;
     align-items:center;
@@ -167,23 +167,24 @@
     border-radius:10px;
     box-shadow:0 18px 44px rgba(0,0,0,0.20);
     font-weight:700;
-    z-index:9999;
+    z-index:2147483647;
     font-size:13px;
     line-height:1.2;
     opacity:0;
     transform:translateY(12px) scale(0.98);
     transition:opacity .28s ease, transform .28s cubic-bezier(.2,.9,.2,1);
     pointer-events:auto;
+    left:14px;
+    bottom:96px;
+    background:var(--green-pop);
+    color:#fff;
+    max-width:320px;
   }
-  .pop-purchase{left:14px;bottom:96px;background:var(--green-pop);color:#fff;max-width:320px}
-  .pop-online{right:14px;top:18px;background:linear-gradient(90deg,#13a357,#0f8b4a);color:#fff;align-items:center}
 
-  .pop-purchase.show, .pop-online.show{
+  .pop-purchase.show{
     opacity:1;
     transform:translateY(0) scale(1);
   }
-
-  .dot-online{font-size:18px;margin-right:8px}
 
   /* responsive */
   @media(min-width:820px){
@@ -193,10 +194,9 @@
     h1{font-size:44px}
     .hero-banner img { height:520px; } /* desktop height */
     .pop-purchase{left:24px;bottom:120px}
-    .pop-online{right:24px;top:24px}
   }
 
-  /* penultimate CTA photo */
+  /* penultimate CTA photo / bonus CTA photo */
   .pen-photo {
     width:96px;
     height:96px;
@@ -327,6 +327,8 @@
       <p class="muted">Ao garantir agora, você recebe imediatamente o bônus <strong>"120 Hábitos para transformar seu dia"</strong> — uma coleção de hábitos práticos que potencializam os resultados do PAX quando aplicados diariamente.</p>
 
       <div style="margin-top:12px;text-align:center">
+        <!-- FOTO ACIMA DO CTA (adicione o arquivo penultimate-photo.jpg no repo) -->
+        <img class="pen-photo" id="bonus-photo" src="penultimate-photo.jpg" alt="Foto de destaque — coloque o arquivo no GitHub ou na pasta do site">
         <a class="cta-large" href="https://pay.kiwify.com.br/r3bathm" target="_blank">GARANTIR BÔNUS + PAX — R$39,90 <span class="arrow">→</span></a>
       </div>
     </div>
@@ -394,11 +396,10 @@
   </footer>
 </div>
 
-<!-- POPOUTS (configurado para aparecer com transição) -->
+<!-- POPOUTS (apenas compra) -->
 <div id="purchasePop" class="pop-purchase" role="status" aria-live="polite"></div>
-<div id="onlinePop" class="pop-online" role="status" aria-live="polite"><div class="dot-online">🟢</div><div id="onlineText">12 pessoas visualizando agora</div></div>
 
-<!-- SCRIPT REPLACE: roda só depois do DOM, cria elementos se necessário, protege contra outros scripts -->
+<!-- SCRIPT: somente pop de compra — primeiro após 10s, depois a cada 45s -->
 <script>
 (function(){
   'use strict';
@@ -426,37 +427,46 @@
 
     const purchaseEl = document.getElementById('purchasePop');
     if(!purchaseEl){
-      console.warn("Elemento purchasePop não encontrado.");
+      console.warn("Elemento #purchasePop não encontrado.");
       return;
     }
 
     function forceVisible(el){
-      el.style.setProperty('display','flex','important');
-      el.style.setProperty('opacity','1','important');
-      el.style.setProperty('visibility','visible','important');
-      el.style.setProperty('z-index','2147483647','important');
+      try{
+        el.style.setProperty('display','flex','important');
+        el.style.setProperty('opacity','1','important');
+        el.style.setProperty('visibility','visible','important');
+        el.style.setProperty('z-index','2147483647','important');
+      }catch(e){}
     }
 
     function showPurchase(text, duration = 5000){
-      purchaseEl.textContent = text;
-      forceVisible(purchaseEl);
-      purchaseEl.classList.add('show');
-      setTimeout(()=> purchaseEl.classList.remove('show'), duration);
+      try{
+        purchaseEl.textContent = text;
+        forceVisible(purchaseEl);
+        purchaseEl.classList.add('show');
+        setTimeout(()=> purchaseEl.classList.remove('show'), duration);
+      }catch(e){ console.warn('showPurchase erro', e); }
     }
 
     let index = 0;
-
     function triggerPurchase(){
       const name = buyers[index % buyers.length];
       index++;
       showPurchase(`${name} — Acabou de comprar o PAX.`);
     }
 
-    // PRIMEIRO POP DEPOIS DE 10s
+    // primeiro pop depois de 10s
     setTimeout(triggerPurchase, 10000);
 
-    // DEPOIS UM A CADA 45s
+    // depois a cada 45s
     setInterval(triggerPurchase, 45000);
+
+    // expose API for debugging
+    window.__PAX_POPOUTS = {
+      triggerNow: () => triggerPurchase(),
+      ensureVisible: () => forceVisible(purchaseEl)
+    };
   }
 
   if(document.readyState === 'loading'){
@@ -465,5 +475,10 @@
     init();
   }
 
+  // fallback: tenta reiniciar após 3s caso algo bloqueie
+  setTimeout(()=>{ if(!document.getElementById('purchasePop')) try{ init(); }catch(e){} },3000);
+
 })();
 </script>
+</body>
+</html>
