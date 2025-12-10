@@ -405,43 +405,118 @@
   'use strict';
 
   function init(){
+    // nomes de exemplo
     const buyers = [
-      "Ana Beatriz, SP","Mariana Alves, RJ","Patrícia Oliveira, RJ",
-      "Renata Costa, MG","Amanda Pereira, PR","Gabriela Ramos, BA",
-      "Mariana Souza, SP","Fernanda Lima, CE","Juliana Rocha, RS",
-      "Camila Ferreira, PE","Bianca Martins, SP","Larissa Almeida, DF",
-      "Cláudia Moraes, MG","Priscila Teixeira, PE","Aline Castro, BA",
-      "Lucas Mendes, CE","Gustavo Pereira, PR","Ricardo Almeida, SP"
+      "Ana Beatriz Silva, SP, 34 anos","Mariana Alves, RJ, 38 anos","Patrícia Oliveira, RJ, 42 anos",
+      "Renata Costa, MG, 35 anos","Amanda Pereira, PR, 39 anos","Gabriela Ramos, BA, 36 anos",
+      "Mariana Souza, SP, 33 anos","Fernanda Lima, CE, 40 anos","Juliana Rocha, RS, 37 anos",
+      "Camila Ferreira, PE, 41 anos","Bianca Martins, SP, 45 anos","Larissa Almeida, DF, 32 anos",
+      "Tatiana Gomes, RJ, 43 anos","Patrícia Nascimento, BA, 38 anos","Sofia Cardoso, MG, 36 anos",
+      "Carla Menezes, PR, 44 anos","Adriana Pinto, SP, 47 anos","Isabela Duarte, RJ, 31 anos",
+      "Cláudia Moraes, MG, 50 anos","Priscila Teixeira, PE, 37 anos","Renata Barros, CE, 34 anos",
+      "Aline Castro, BA, 39 anos","Eliana Ribeiro, RS, 41 anos","Mirella Santana, SP, 35 anos",
+      "Natália Lopes, RJ, 33 anos","Lucas Mendes, CE, 41 anos","Bruno Silva, SP, 38 anos",
+      "Roberto Santos, RJ, 45 anos","Fernando Costa, MG, 39 anos","Gustavo Pereira, PR, 36 anos",
+      "Mateus Oliveira, BA, 34 anos","Ricardo Almeida, SP, 43 anos","Paulo Ferreira, RJ, 47 anos",
+      "Rafael Gomes, RS, 35 anos","Marcelo Nascimento, PE, 40 anos","Thiago Rocha, SP, 37 anos",
+      "Daniel Martins, DF, 42 anos","André Araújo, RJ, 44 anos","Eduardo Carvalho, MG, 48 anos",
+      "Rodrigo Ribeiro, BA, 39 anos","Vitor Lima, CE, 33 anos","Felipe Cardoso, PR, 36 anos",
+      "Fábio Souza, SP, 46 anos","Alexandre Pinto, RJ, 38 anos","Diego Santana, MG, 35 anos",
+      "Marcos Araújo, RS, 50 anos","Leonardo Teixeira, PE, 41 anos","Hugo Mendes, SP, 37 anos",
+      "Igor Barbosa, RJ, 34 anos","Guilherme Rocha, MG, 36 anos"
     ];
 
-    const pop = document.getElementById("purchasePop");
-    if(!pop) return;
-
-    function showOnce(){
-      const name = buyers[Math.floor(Math.random()*buyers.length)];
-      pop.textContent = ${name} acabou de comprar o PAX;
-      pop.classList.add("show");
-      setTimeout(()=> pop.classList.remove("show"), 3500); // some
+    // --- garante que exista o elemento #purchasePop ---
+    let purchaseEl = document.getElementById('purchasePop');
+    if(!purchaseEl){
+      purchaseEl = document.createElement('div');
+      purchaseEl.id = 'purchasePop';
+      purchaseEl.className = 'pop-purchase';
+      purchaseEl.setAttribute('role','status');
+      purchaseEl.setAttribute('aria-live','polite');
+      document.body.appendChild(purchaseEl);
+      console.info('[PAX] #purchasePop criado dinamicamente');
     }
 
-    // aparece 10s depois
-    setTimeout(()=>{
+    // --- aplica estilo mínimo inline caso CSS externo esteja bloqueando ---
+    (function ensureStyles(el){
+      try{
+        el.style.display = el.style.display || 'flex';
+        el.style.alignItems = el.style.alignItems || 'center';
+        el.style.gap = el.style.gap || '10px';
+        el.style.padding = el.style.padding || '12px 16px';
+        el.style.borderRadius = el.style.borderRadius || '10px';
+        el.style.background = el.style.background || 'rgb(19,163,87)'; // fallback
+        el.style.color = el.style.color || '#fff';
+        el.style.zIndex = '2147483647';
+        el.style.maxWidth = el.style.maxWidth || '360px';
+        el.style.whiteSpace = 'normal';
+        el.style.wordBreak = 'break-word';
+      }catch(e){
+        console.warn('[PAX] Falha ao ajustar estilos inline', e);
+      }
+    })(purchaseEl);
 
-      showOnce();
+    // helpers
+    function showText(text){
+      purchaseEl.textContent = text;
+      purchaseEl.classList.add('show');
+    }
+    function hidePop(){
+      purchaseEl.classList.remove('show');
+    }
 
-      // ciclo infinito → 3s, 5s, 3s, 5s...
-      let toggle = true;
-      setInterval(()=>{
-        showOnce();
-        toggle = !toggle;
-      }, toggle ? 3000 : 5000);
+    // força visibilidade (usa !important quando possível)
+    function forceVisible(el){
+      try{
+        el.style.setProperty('display','flex','important');
+        el.style.setProperty('visibility','visible','important');
+      }catch(e){}
+    }
 
-    }, 10000);
+    // lógica de exibição
+    const VISIBLE_MS = 3500; // tempo visível
+    let index = 0;
+
+    function triggerPurchase(){
+      const name = buyers[index % buyers.length];
+      index++;
+      const msg = ${name} — Acabou de comprar o PAX.;
+      forceVisible(purchaseEl);
+      showText(msg);
+      setTimeout(hidePop, VISIBLE_MS);
+      console.debug('[PAX] pop exibido:', msg);
+    }
+
+    // scheduling: primeiro depois de 10s, depois interval (45s)
+    const FIRST_DELAY = 10000;
+    const INTERVAL_MS = 45000;
+    let intervalHandle = null;
+    let firstTimeout = setTimeout(()=>{
+      try{
+        triggerPurchase();
+        // programa o intervalo regular
+        intervalHandle = setInterval(triggerPurchase, INTERVAL_MS);
+      }catch(e){
+        console.error('[PAX] erro no trigger inicial', e);
+      }
+    }, FIRST_DELAY);
+
+    // expose API for debugging / manual trigger
+    window.__PAX_POPOUTS = {
+      triggerNow: () => { try{ triggerPurchase(); }catch(e){console.error(e);} },
+      stop: () => { clearTimeout(firstTimeout); if(intervalHandle) clearInterval(intervalHandle); },
+      _el: purchaseEl
+    };
+
+    console.info('[PAX] init ok — primeiro pop em', FIRST_DELAY/1000, 's e intervalo de', INTERVAL_MS/1000, 's');
   }
 
-  document.readyState === "loading"
-    ? document.addEventListener("DOMContentLoaded", init)
-    : init();
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 
 })();
 </script>
